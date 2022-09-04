@@ -1,5 +1,5 @@
 import { Evento } from "./Evento.js";
-export class GestorEvento{
+export class GestorEventos{
     constructor(){}
     /**
      * * Funcion que traer todos los eventos de la base de datos

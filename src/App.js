@@ -6,6 +6,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import CatalogoEventos from './views/CatalogoEventos';
 
 // ! Comentar este componente, solamente es para pruebas
 
@@ -15,7 +16,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" ></Route>
-          <Route path = "/catalogoEventos"></Route>
+          <Route path = "/catalogoEventos" component={CatalogoEventos}></Route>
         </Switch>
       </Router>
     </>

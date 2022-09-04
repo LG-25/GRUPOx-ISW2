@@ -1,4 +1,0 @@
-/*
-    ARCHIVO PARA PODER SUBIR AL GITHUB
-
-*/
