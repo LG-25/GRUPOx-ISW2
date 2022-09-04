@@ -17,8 +17,12 @@ export default function CatalogoEventos() {
 
     console.log(eventos);
     return (
-        <div className='catalogo'>
-            {eventos.map(event => <CartaEvento key={event.NU_EVNT} evento={event}/>)}
-        </div>
+        <>
+            <div className="container mt-3">
+                <div className="row row-cols-md-4 justify-content-center">
+                    {eventos.map(event => <CartaEvento key={event.NU_EVNT} evento={event}/>)}
+                </div>
+            </div>
+        </>
     )
 }

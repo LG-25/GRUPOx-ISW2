@@ -1,11 +1,11 @@
 
 export class Evento{
-    constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig, url_foto){
+    constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_event, ubic, fh_inicio, fh_fin, url_evnt, fg_vig, url_foto){
         this.nu_evnt    = nu_evnt;
         this.no_evnt    = no_evnt;
         this.qt_pers    = qt_pers;
         this.qt_hrs     = qt_hrs;
-        this.desc_evnt  = desc_evnt;
+        this.desc_event  = desc_event;
         this.ubic       = ubic;
         this.fh_inicio  = fh_inicio;
         this.fh_fin     = fh_fin;
@@ -22,7 +22,7 @@ export class Evento{
                 NO_EVNT     : this.no_evnt, 
                 QT_PERS     : this.qt_pers,  
                 QT_HRS      : this.qt_hrs,   
-                DESC_EVNT   : this.desc_evnt,
+                DESC_EVENT   : this.desc_event,
                 UBIC        : this.ubic,     
                 FH_INICIO   : this.fh_inicio,
                 FH_FIN      : this.fh_fin,   
