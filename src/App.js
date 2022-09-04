@@ -8,6 +8,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import CatalogoEventos from './views/CatalogoEventos';
+import EditarUsuario from './views/EditarUsuario';
 
 // ! Comentar este componente, solamente es para pruebas
 
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/" ></Route>
           <Route path = "/catalogoEventos" component={CatalogoEventos}></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
+          <Route path = "/editarUsuario" component={EditarUsuario}></Route>
         </Switch>
       </Router>
     </>
