@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { GestorEventos } from '../classes/GestorEventos.js'
 import { CartaEvento } from '../components/CartaEvento.jsx';
+import { Sidebar } from '../components/Sidebar.jsx';
 
 export default function CatalogoEventos() {
 
@@ -18,9 +19,16 @@ export default function CatalogoEventos() {
     console.log(eventos);
     return (
         <>
-            <div className="container mt-3">
-                <div className="row row-cols-md-4 justify-content-center">
-                    {eventos.map(event => <CartaEvento key={event.NU_EVNT} evento={event}/>)}
+            <div className="row">
+                <div className="col-md-2">
+                    <Sidebar></Sidebar>
+                </div>
+                <div className="col">
+                    <div className="d-flex flex-column flex-shrink-0 container mt-3 justify-content-center">
+                        <div className="row row-cols-md-4 justify-content-center">
+                            {eventos.map(event => <CartaEvento key={event.NU_EVNT} evento={event}/>)}
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
