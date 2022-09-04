@@ -1,6 +1,6 @@
 
 export class Evento{
-    constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig){
+    constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig, url_foto){
         this.nu_evnt    = nu_evnt;
         this.no_evnt    = no_evnt;
         this.qt_pers    = qt_pers;
@@ -11,6 +11,7 @@ export class Evento{
         this.fh_fin     = fh_fin;
         this.url_evnt   = url_evnt;
         this.fg_vig     = fg_vig;
+        this.url_foto   = url_foto;
     }
 
     async update(){
@@ -27,6 +28,7 @@ export class Evento{
                 FH_FIN      : this.fh_fin,   
                 URL_EVNT    : this.url_evnt, 
                 FG_VIG      : this.fg_vig,
+                URL_FOTO    : this.url_foto
             })
         };
         const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${this.nu_evnt}`, requestOptions)

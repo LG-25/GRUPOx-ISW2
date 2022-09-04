@@ -27,7 +27,8 @@ export class GestorEventos{
                         evento.FH_INICIO,
                         evento.FH_FIN,
                         evento.URL_EVNT,
-                        evento.FG_VIG
+                        evento.FG_VIG,
+                        evento.URL_FOTO
                     )
                 )
             })
@@ -57,7 +58,8 @@ export class GestorEventos{
                         eventoJson.FH_INICIO,
                         eventoJson.FH_FIN,
                         eventoJson.URL_EVNT,
-                        eventoJson.FG_VIG
+                        eventoJson.FG_VIG,
+                        eventoJson.URL_FOTO
                     )
             return evento
         }
