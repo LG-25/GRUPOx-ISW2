@@ -10,6 +10,7 @@ import {
 import Evento_Detalles from "./views/Evento_Detalles"
 import CatalogoEventos from './views/CatalogoEventos';
 import Principal from './views/Principal';
+import SignUpUsuario from './views/SignUpUsuario';
 
 // ! Comentar este componente, solamente es para pruebas
 
@@ -21,10 +22,12 @@ function App() {
           <Route exact path="/" component={Principal}></Route>
           <Route path = "/catalogoEventos" component={CatalogoEventos}></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
+          <Route path = "/SignUpUsuario" component={SignUpUsuario}/>
         </Switch>
       </Router>
     </>
   );
 }
+
 
 export default App;
