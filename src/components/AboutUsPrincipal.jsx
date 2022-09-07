@@ -49,7 +49,7 @@ const AboutUsPrincipal = () => {
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-12">
                         <div class="about-image-five">
-                            <img src="#" alt="Imagen para el acerca de nosotros"></img>
+                            <img src="https://github.com/LG-25/GRUPOx-ISW2/blob/main/public/P1370579-1024x535.jpg?raw=true" alt="Imagen para el acerca de nosotros"></img>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
