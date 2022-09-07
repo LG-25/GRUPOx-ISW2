@@ -29,11 +29,11 @@ function App() {
           <Route path="/SignupEntidad" component={SignupEntidad}></Route>
           <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
+        
         </Switch>
       </Router>
     </>
   );
 }
-
 
 export default App;
