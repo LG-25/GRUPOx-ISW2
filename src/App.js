@@ -1,4 +1,9 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+<<<<<<< HEAD
+=======
+import './App.css';
+import Evento_Detalles from "./views/Evento_Detalles"
+>>>>>>> 2d3491d (Plantilla detalles agregada)
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,10 +24,16 @@ function App() {
     <>
       <Router>
         <Switch>
+<<<<<<< HEAD
           <Route exact path="/" component={Principal}></Route>
           <Route path = "/catalogoEventos" component={CatalogoEventos}></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
           <Route path = "/editarUsuario" component={EditarUsuario}></Route>
+=======
+          <Route exact path="/" ></Route>
+          <Route path = "/catalogoEventos"></Route>
+          <Route path = "/evento" component={Evento_Detalles}></Route>
+>>>>>>> 2d3491d (Plantilla detalles agregada)
         </Switch>
       </Router>
     </>
