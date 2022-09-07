@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import { Link } from 'react-router-dom';  
 import { Sidebar } from '../components/Sidebar.jsx';
+import InvitacionLink from "./InvitacionLink.jsx";
 
 const FormularioEvento=()=>{
     
@@ -91,7 +92,7 @@ const FormularioEvento=()=>{
                         <div className="mt-1">
                             <textarea className="form-control my-2" placeholder="Descripción del evento" rows="8" col="53" name="DESC_EVENT" value={DESC_EVENT} onChange={e => onInputChange(e)}></textarea>
                         </div>     
-                        <div className="">
+                        <div className="mt-1">
                             <input type="text" className="form-control my-2" placeholder="Ubicación del evento" name="UBIC" value={UBIC} onChange={e => onInputChange(e)}></input>
                         </div>
                         <div className="col mt-2">
@@ -125,12 +126,16 @@ const FormularioEvento=()=>{
 
                         <div className="text-center my-2">
                             <button className="btn btn-primary" onClick={e => onSubmit(e)}>Registrar</button>
-                         </div>
+                        </div>
                         
+                         <div className="mt-5 mb-5">
+                            <InvitacionLink/>
+                        </div>
                     </div>
 
                 </div>
             </div>
+            
         </div> 
     )
 }
