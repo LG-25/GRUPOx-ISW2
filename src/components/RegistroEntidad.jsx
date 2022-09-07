@@ -24,7 +24,7 @@ const RegistroEntidad =()=>{
     }
 
     const onSubmit = async  e => {
-        const response = await fetch(`` , {
+        const response = await fetch(`https://genium-backend.herokuapp.com/usuarios` , {
             method: "POST",
             headers:{
                 'Acept': 'application/json',
