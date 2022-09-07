@@ -34,11 +34,11 @@ function App() {
           <Route exact path="/" ></Route>
           <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
+        
         </Switch>
       </Router>
     </>
   );
 }
-
 
 export default App;
