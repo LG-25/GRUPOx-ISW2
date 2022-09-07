@@ -82,20 +82,16 @@ const RegistroEntidad =()=>{
                 <div className="container-fluid mt-4">
                     <h3 className="mb-2">Datos personales</h3>
                     <div class="mb-3">
-                        <label for="NOM_USR" class="form-label">Nombre</label>
+                        <label for="NOM_USR" class="form-label">Nombre de la entidad</label>
                         <input type="text" class="form-control" name="NOM" value={NOM} onChange={e=>onInputChange(e)}/>
                     </div>
                     <div class="mb-3">
-                        <label for="AP_PAT" class="form-label">Apellido Paterno</label>
-                        <input type="text" class="form-control" name="AP_PAT" value={AP_PAT} onChange={e=>onInputChange(e)}/>
+                        <label for="AP_PAT" class="form-label">RUC: </label>
+                        <input type="number" class="form-control" name="AP_PAT" value={AP_PAT} onChange={e=>onInputChange(e)}/>
                     </div>
                     <div class="mb-3">
-                        <label for="AP_MAT" class="form-label">Apellido Materno</label>
+                        <label for="AP_MAT" class="form-label">Pais</label>
                         <input type="text" class="form-control" name="AP_MAT" value={AP_MAT} onChange={e=>onInputChange(e)}/>
-                    </div>
-                    <div class="mb-3">
-                        <label for="FH_NACIMIENTO" class="form-label">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" name="FH_NACIMIENTO" value={FH_NACIMIENTO} onChange={e=>onInputChange(e)}/>
                     </div>
                     <div className="text-center mb-4">
                         <button type="submit" className="btn btn-primary my-2">Regístrate</button>
