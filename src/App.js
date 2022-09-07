@@ -29,7 +29,6 @@ function App() {
           <Route path = "/SignUpUsuario" component={SignUpUsuario}/>
           <Route path = "/RegistroEvento" component={RegistroEvento}></Route>
           <Route path="/SignupEntidad" component={SignupEntidad}></Route>
-          <Route exact path="/" ></Route>
           <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
         </Switch>
