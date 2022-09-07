@@ -4,6 +4,7 @@ const loginUsuario = ()=> {
 
     /*const validarUsuario = async () =>{
         const response = await fetch(`https://genium-backend.herokuapp.com/usuarios/${NOM_USR}/${CONTRA}`);
+        const response = await fecth(`https://genium-backend.herokuapp.com/usuario/${NOM_USR}/${CONTRA}`);
         const res = await response.json();
 
         const USRvalido =res.respuesta.Usuario.length >0;
@@ -16,7 +17,11 @@ const loginUsuario = ()=> {
     }
 
     const [nomUSR, setnomUSR] = useState("");
+<<<<<<< HEAD
     const [contra, setContra] = useState("");
+=======
+    const [contra, serContra] = useState("");
+>>>>>>> 5cd9594e5a22218c2c6cd91348685e40459fa83d
     
 return(
     <div className="container fluid my-4">
