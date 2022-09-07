@@ -13,7 +13,6 @@ import Principal from './views/Principal';
 import EditarUsuario from './views/EditarUsuario';
 import RegistroEvento from './views/RegistroEvento';
 import SignUpUsuario from './views/SignUpUsuario';
-import RegistroEvento from './views/RegistroEvento';
 import SignupEntidad from './views/SignupEntidad';
 
 // ! Comentar este componente, solamente es para pruebas
@@ -29,7 +28,6 @@ function App() {
           <Route path = "/editarUsuario" component={EditarUsuario}></Route>
           <Route path = "/RegistroEvento" component={RegistroEvento}></Route>
           <Route path = "/SignUpUsuario" component={SignUpUsuario}/>
-          <Route path = "/RegistroEvento" component={RegistroEvento}></Route>
           <Route path="/SignupEntidad" component={SignupEntidad}></Route>
           <Route exact path="/" ></Route>
           <Route path = "/catalogoEventos"></Route>

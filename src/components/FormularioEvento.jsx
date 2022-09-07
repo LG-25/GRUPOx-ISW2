@@ -108,16 +108,16 @@ const FormularioEvento=()=>{
                         <div>
                         <input type="text" name="URL_FOTO" className="form-control my-2" placeholder="URL de las fotos" value={URL_FOTO} onChange={e => onInputChange(e)}/>
                         </div>
-
+                        
                         <h5 className="mt-2">Vigencia del Evento</h5>
                         <div class="form-check mt-2 mx-4">
-                            <input class="form-check-input" type="radio" name="FG_VIG" value={FG_VIG} onChange={e => onInputChange(e)} checked/>
+                            <input class="form-check-input" type="radio" name="true" value={FG_VIG} onChange={e => onInputChange(e)} checked/>
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Evento vigente
                             </label>
                         </div>
                         <div class="form-check mx-4">
-                            <input class="form-check-input" type="radio" name="FG_VIG" value={FG_VIG} onChange={e => onInputChange(e)} />
+                            <input class="form-check-input" type="radio" name="false" value={FG_VIG} onChange={e => onInputChange(e)} />
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Evento cancelado
                             </label>
@@ -125,7 +125,7 @@ const FormularioEvento=()=>{
 
                         <div className="text-center my-2">
                             <button className="btn btn-primary" onClick={e => onSubmit(e)}>Registrar</button>
-                        </div>
+                         </div>
                         
                     </div>
 
