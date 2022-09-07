@@ -1,6 +1,4 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Evento_Detalles from "./views/Evento_Detalles"
 import {
   BrowserRouter as Router,
   Switch,
