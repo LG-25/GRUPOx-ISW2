@@ -14,6 +14,7 @@ import EditarUsuario from './views/EditarUsuario';
 import SignUpUsuario from './views/SignUpUsuario';
 import RegistroEvento from './views/RegistroEvento';
 import SignupEntidad from './views/SignupEntidad';
+import loginUsuario from './views/loginUsuario';
 
 // ! Comentar este componente, solamente es para pruebas
 
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/" ></Route>
           <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
+          <Route path="/loginUsuario" component={loginUsuario}></Route>
         </Switch>
       </Router>
     </>
