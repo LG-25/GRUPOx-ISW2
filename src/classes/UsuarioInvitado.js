@@ -16,7 +16,6 @@ export class UsuarioInvitado{
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({   
-                CO_USR_INV : this.co_usr_inv,
                 NOM_USR: this.nom_usr,
                 CORREO: this.correo,
                 CONTRA: this.contra,
