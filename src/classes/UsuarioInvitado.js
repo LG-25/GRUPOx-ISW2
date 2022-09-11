@@ -26,7 +26,7 @@ export class UsuarioInvitado{
                 FH_CREACION: this.fh_creacion
             })
         };
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${this.nu_evnt}`, requestOptions)
+        const response = await fetch(`https://genium-backend.herokuapp.com//usuariosI/${this.nu_evnt}`, requestOptions)
         if(!response.ok){
             throw new Error('No se pudo actualizar el evento')
         }else{

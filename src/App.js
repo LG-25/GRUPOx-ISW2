@@ -11,7 +11,7 @@ import EditarUsuario from './views/EditarUsuario';
 import SignUpUsuario from './views/SignUpUsuario';
 import RegistroEvento from './views/RegistroEvento';
 import SignupEntidad from './views/SignupEntidad';
-
+import Evento_Detalles from './views/Evento_Detalles';
 // ! Comentar este componente, solamente es para pruebas
 
 function App() {

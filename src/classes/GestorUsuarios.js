@@ -46,4 +46,23 @@ export class GestorUsuarios{
             return usuarioI
         }
     }
+
+    async actualizarUsuarioI(co_usr_inv, datos){
+        await fetch(`https://genium-backend.herokuapp.com/eventos/${co_usr_inv}`,{
+            method: "PUT",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                {
+                    NOM_USR: datos[0],
+                    AP_PAT: datos[1],
+                    AP_MAT: datos[2],
+                    CORREO: datos[3],
+                    CONTRA: datos[4]
+                }
+            )
+        })
+    }
 }
