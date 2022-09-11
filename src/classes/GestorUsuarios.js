@@ -27,7 +27,7 @@ export class GestorUsuarios{
         }
     }
     async ObtenerUsuarioI(co_usr_inv){
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${co_usr_inv}`)
+        const response = await fetch(`https://genium-backend.herokuapp.com/UsuariosI/${co_usr_inv}`)
         if(!response.ok){
             throw new Error('No se pudo obtener el usuario invitado')
         }else{
@@ -48,7 +48,7 @@ export class GestorUsuarios{
     }
 
     async actualizarUsuarioI(co_usr_inv, datos){
-        await fetch(`https://genium-backend.herokuapp.com/eventos/${co_usr_inv}`,{
+        await fetch(`https://genium-backend.herokuapp.com/UsuariosI/${co_usr_inv}`,{
             method: "PUT",
             headers: {
                 'Accept': 'application/json',

@@ -32,6 +32,8 @@ const Modaledit = (props) => {
       };
     const btnGuardarOnclick= ()=>{
       setOpenModal(true);
+    }
+    const btnConfirmarOnClick=()=>{
       gestorUsuarios.actualizarUsuarioI(10, [txtNombre, txtAp_pat, txtAp_ma, txtCorreo, txtContra]);
     }
 
@@ -84,7 +86,7 @@ const Modaledit = (props) => {
       </div>
       <div className="col" />
     </div>
-    {openModal && <ModalMensaje closeModal={setOpenModal}></ModalMensaje>}
+    {openModal && <ModalMensaje closeModal={setOpenModal} confirmar={btnConfirmarOnClick}></ModalMensaje>}
   </div>
   
   };
