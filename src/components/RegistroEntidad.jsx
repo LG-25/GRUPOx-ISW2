@@ -87,11 +87,11 @@ const RegistroEntidad =()=>{
                     </div>
                     <div class="mb-3">
                         <label for="AP_PAT" class="form-label">RUC: </label>
-                        <input type="number" class="form-control" name="AP_PAT" value={AP_PAT} onChange={e=>onInputChange(e)}/>
+                        <input type="number" class="form-control" name="RUC" value={RUC} onChange={e=>onInputChange(e)}/>
                     </div>
                     <div class="mb-3">
                         <label for="AP_MAT" class="form-label">Pais</label>
-                        <input type="text" class="form-control" name="AP_MAT" value={AP_MAT} onChange={e=>onInputChange(e)}/>
+                        <input type="text" class="form-control" name="PAIS" value={PAIS} onChange={e=>onInputChange(e)}/>
                     </div>
                     <div className="text-center mb-4">
                         <button type="submit" className="btn btn-primary my-2">Regístrate</button>
