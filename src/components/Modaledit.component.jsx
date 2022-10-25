@@ -1,7 +1,7 @@
 //import { Modal, Button } from 'react-bootstrap';
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { GestorUsuarios } from '../classes/GestorUsuarios';
+import { GestorUsuarios } from '../services/ServiciosUsuario.js';
 import ModalMensaje from './ModalMensaje';
 const Modaledit = (props) => {
     const usuario = props.user;

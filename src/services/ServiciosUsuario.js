@@ -1,5 +1,5 @@
 import { UsuarioInvitado } from "./UsuarioInvitado";
-export class GestorUsuarios{
+export class GestorUsuarios{//Cambiar a clase llamada USUARIO
     constructor(){}
     async obtenerUsuariosI(){
         const response = await fetch(`https://genium-backend.herokuapp.com/UsuariosI`);

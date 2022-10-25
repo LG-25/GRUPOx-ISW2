@@ -1,5 +1,5 @@
 import React from 'react'
-import { Evento } from '../classes/Evento.js'
+import { Evento } from '../services/ServiciosEvento.js'
 
 export const CartaEvento = (props) => {
   const evento = props.evento;

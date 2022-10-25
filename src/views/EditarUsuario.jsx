@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { GestorUsuarios } from "../classes/GestorUsuarios.js"
+import { GestorUsuarios } from "../services/ServiciosUsuario.js"
 import Modaledit from "../components/Modaledit.component.jsx"
 const EditarUsuario=()=>{
     //const [datos, setDatos]= useState([])
