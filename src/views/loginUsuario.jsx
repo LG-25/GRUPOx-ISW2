@@ -37,37 +37,28 @@ const LoginUsuario = ()=> {
 
     
 return(
-    <div className="container fluid my-4">
+    <div className="container fluid my-4 w-50 border p-5 position-absolute top-50 start-50 translate-middle">
         <div className="row">
             <div className="col">
-                <h2>Usuario Entidad</h2>
-                <div>
-                    <label for="floatingInput">Nombre de usuario entidad</label>
+                <h2 className="mb-4 text-center">¡Bienvenido usuario!</h2>
+                <div className="">
+                    <label for="floatingInput">Nombre de usuario</label>
                     <input type="text" className="form-control"  placeholder="Usuario" onChange={e => setnomUSR(e.target.value)} value={nomUSR}/>
                 </div>
-                <div>
+                <div className="my-4">
                     <label for="floatingInput">Contraseña</label>
                     <input type="text" className="form-control"  placeholder="Contrasena" onChange={e => setContra(e.target.value)} value={contra}/>
                 </div>
                 <div className="my-4 text-center">
                     <button className="btn btn-success">Ingresar</button>
                 </div>
+                <div>
+                    <div className="fw-4 text-center">¿No tienes cuenta? Regístrate</div> 
+                    <div className="fw-4 text-center">Volver</div>
+                </div>
 
             </div>
-            <div className="col">
-                <h2>Usuario Invitado </h2>
-                <div>
-                    <label for="floatingInput">Nombre de usuario invitado</label>
-                    <input type="text" className="form-control"  placeholder="Usuario invitado" onChange={e => setnomUSRI(e.target.value)} value={nomUSRI} name="nomUSRI"/>
-                </div>
-                <div>
-                    <label for="floatingInput">Contraseña</label>
-                    <input type="text" className="form-control"  placeholder="Contraseña" onChange={e => setContraI(e.target.value)} value={contraI} name="contraI"/>
-                </div>
-                <div className="my-4 text-center">
-                    <button className="btn btn-success">Ingresar</button>
-                </div>
-            </div>
+            
         </div>
     </div> 
 )
