@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { GestorEventos } from '../classes/GestorEventos.js'
+import { Evento } from '../services/ServiciosEvento.js'
 import { CartaEvento } from '../components/CartaEvento.jsx';
 import { Sidebar } from '../components/Sidebar.jsx';
 
 export default function CatalogoEventos() {
 
     const [eventos, setEventos] = useState([])
-    const gestorEventos = new GestorEventos();
     
     // Solamente se realizará una vez el useState
     useEffect(() => {
-        gestorEventos.obtenerEventos()
+        Evento.obtenerEventos()
             .then(result => {
                 setEventos(result)
             })
@@ -20,7 +19,7 @@ export default function CatalogoEventos() {
     return (
         <>
             <div className="row">
-                <div className="col-md-2">
+                <div className="col-3">
                     <Sidebar></Sidebar>
                 </div>
                 <div className="col">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 const RegistroUsuario = () => {
         const [datos, setDatos] = useState({
             CO_USR: "",

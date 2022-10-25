@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 export class Usuario{
     constructor(co_usr_inv, nom_usr, correo, contra, nom, fh_creacion, pais, ruc){
+=======
+class Usuario{
+    constructor(co_usr_inv, nom_usr, correo, contra, nom, ap_pat, ap_mat, fh_nacimiento, fh_creacion){
+>>>>>>> main
         this.co_usr_inv= co_usr_inv
         this.nom_usr= nom_usr
         this.correo = correo
         this.contra= contra
         this.nom= nom
+<<<<<<< HEAD
         this.fh_creacion= fh_creacion
         this.pais = pais
         this.ruc = ruc
@@ -30,5 +36,11 @@ export class Usuario{
         }else{
             return response.json()
         }
+=======
+        this.ap_pat= ap_pat
+        this.ap_mat= ap_mat
+        this.fh_nacimiento= fh_nacimiento
+        this.fh_creacion= fh_creacion
+>>>>>>> main
     }
 }

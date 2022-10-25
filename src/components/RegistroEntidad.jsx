@@ -85,7 +85,7 @@ const RegistroEntidad =()=>{
                 <div className="container-fluid mt-4">
                     <h3 className="mb-2">Datos de la entidad </h3>
                     <div class="mb-3">
-                        <label for="NOM_USR" class="form-label">Nombre</label>
+                        <label for="NOM_USR" class="form-label">Nombre de la entidad</label>
                         <input type="text" class="form-control" name="NOM" value={NOM} onChange={e=>onInputChange(e)}/>
                     </div>
                     <div class="mb-3">
@@ -95,6 +95,15 @@ const RegistroEntidad =()=>{
                     <div class="mb-3">
                         <label for="RUC" class="form-label">RUC</label>
                         <input type="text" class="form-control" name="RUC" value={RUC} onChange={e=>onInputChange(e)}/>
+                        <label for="AP_PAT" class="form-label">RUC: </label>
+                        <input type="number" class="form-control" name="AP_PAT" value={AP_PAT} onChange={e=>onInputChange(e)}/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="AP_MAT" class="form-label">Pais</label>
+                        <input type="text" class="form-control" name="AP_MAT" value={AP_MAT} onChange={e=>onInputChange(e)}/>
+                    </div>
+                    <div className="text-center mb-4">
+                        <button type="submit" className="btn btn-primary my-2">Regístrate</button>
                     </div>
                 </div>
                 <div className="container-fluid mt-4 text-center mb-5">

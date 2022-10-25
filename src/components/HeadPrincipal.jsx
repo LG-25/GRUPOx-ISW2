@@ -6,13 +6,20 @@ const HeadPrincipal = () => {
     <section id="hero-area" class="header-area header-eight">
           <div class="container">
             <div class="row align-items-center">
+              <div class='d-inline mb-5'>
+              <Link to ="/SignUpUsuario">
+                <a class="btn primary-btn">Registro de usuario invitado</a>
+              </Link>
+              <Link to ="/SignupEntidad">
+                <a class="btn primary-btn">Registro de entidad</a>
+              </Link>
+              </div>
               <div class="col-lg-6 col-md-12 col-12">
                 <div class="header-content">
-                  <h1>Corporate &amp; Business Site Template by Ayro UI.</h1>
+                  <h1>La mejor plataforma para la gestión de eventos sociales</h1>
                   <p>
-                    We are a digital agency that helps brands to achieve their
-                    business outcomes. We see technology as a tool to create amazing
-                    things.
+                    Somos GENIUM!, una plataforma que ayudará en la visibilidad de eventos con fines sociales y podrá colaborar en la gestión de
+                    cualquier evento de las distintas ONGs internacionales.
                   </p>
                   <div class="button">
                     <Link to ="/catalogoEventos">
@@ -23,7 +30,7 @@ const HeadPrincipal = () => {
               </div>
               <div class="col-lg-6 col-md-12 col-12">
                 <div class="header-image">
-                  <img src="assets/images/header/hero-image.jpg" alt="imagen chévere, puede ser el logo"/>
+                  <img src="https://github.com/LG-25/GRUPOx-ISW2/blob/main/public/LogoGenium.png?raw=true" alt="imagen chévere, puede ser el logo"/>
                 </div>
               </div>
             </div>
