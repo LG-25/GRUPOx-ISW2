@@ -20,7 +20,7 @@ export default function CatalogoEventos() {
     return (
         <>
             <div className="row">
-                <div className="col-md-2">
+                <div className="col-3">
                     <Sidebar></Sidebar>
                 </div>
                 <div className="col">
