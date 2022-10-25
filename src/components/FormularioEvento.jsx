@@ -93,6 +93,7 @@ const FormularioEvento=()=>{
                             <textarea className="form-control my-2" placeholder="Descripción del evento" rows="8" col="53" name="DESC_EVENT" value={DESC_EVENT} onChange={e => onInputChange(e)}></textarea>
                         </div>     
                         <div className="mt-1">
+                        <div className="">
                             <input type="text" className="form-control my-2" placeholder="Ubicación del evento" name="UBIC" value={UBIC} onChange={e => onInputChange(e)}></input>
                         </div>
                         <div className="col mt-2">
@@ -124,6 +125,21 @@ const FormularioEvento=()=>{
                             </label>
                         </div>
 
+
+                        <h5 className="mt-2">Vigencia del Evento</h5>
+                        <div class="form-check mt-2 mx-4">
+                            <input class="form-check-input" type="radio" name="FG_VIG" value={FG_VIG} onChange={e => onInputChange(e)} checked/>
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Evento vigente
+                            </label>
+                        </div>
+                        <div class="form-check mx-4">
+                            <input class="form-check-input" type="radio" name="FG_VIG" value={FG_VIG} onChange={e => onInputChange(e)} />
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Evento cancelado
+                            </label>
+                        </div>
+
                         <div className="text-center my-2">
                             <button className="btn btn-primary" onClick={e => onSubmit(e)}>Registrar</button>
                         </div>
@@ -137,6 +153,7 @@ const FormularioEvento=()=>{
             </div>
             
         </div> 
+        </div>
     )
 }
 
