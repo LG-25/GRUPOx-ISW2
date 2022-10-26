@@ -9,13 +9,12 @@ const RegistroEntidad =()=>{
         CORREO: "",
         CONTRA: "",
         NOM: "",
-        AP_PAT: "",
-        AP_MAT: "",
-        FH_NACIMIENTO:"",
         FH_CREACION: "",
+        PAIS: "",
+        RUC: "",
     })
 
-    const {NOM_USR, CORREO, CONTRA,NOM, AP_PAT,AP_MAT, FH_NACIMIENTO} =datos;
+    const {NOM_USR, CORREO, CONTRA,NOM,FH_CREACION, PAIS, RUC} =datos;
 
     const onInputChange = e =>{
         console.log(datos);
@@ -25,7 +24,7 @@ const RegistroEntidad =()=>{
     }
 
     const onSubmit = async  e => {
-        const response = await fetch(`` , {
+        const response = await fetch(`https://genium-backend.herokuapp.com/usuarios` , {
             method: "POST",
             headers:{
                 'Acept': 'application/json',
@@ -36,9 +35,9 @@ const RegistroEntidad =()=>{
                 CORREO: datos["CORREO"],
                 CONTRA: datos["CONTRA"],
                 NOM: datos["NOM"],
-                AP_PAT: datos["AP_PAT"],
-                AP_MAT: datos["AP_MAT"],
-                FH_NACIMIENTO: datos["FH_NACIMIENTO"],
+                FH_CREACION: datos["FH_CREACION"],
+                PAIS: datos["PAIS"],
+                RUC: datos["RUC"],
             })
         })
 
@@ -77,29 +76,40 @@ const RegistroEntidad =()=>{
                         <label for="CONTRA" class="form-label">Contraseña</label>
                         <input type="password" class="form-control" name="CONTRA" value={CONTRA} onChange={e=>onInputChange(e)}/>
                     </div>
+                    <div class="mb-3">
+                        <label for="FH_CREACION" class="form-label">Fecha Creación</label>
+                        <input type="date" class="form-control" name="FH_CREACION" value={FH_CREACION} onChange={e=>onInputChange(e)}/>
+                    </div>
                 </div>
 
                 <div className="container-fluid mt-4">
-                    <h3 className="mb-2">Datos personales</h3>
+                    <h3 className="mb-2">Datos de la entidad </h3>
                     <div class="mb-3">
                         <label for="NOM_USR" class="form-label">Nombre de la entidad</label>
                         <input type="text" class="form-control" name="NOM" value={NOM} onChange={e=>onInputChange(e)}/>
                     </div>
                     <div class="mb-3">
+                        <label for="PAIS" class="form-label">Pais</label>
+                        <input type="text" class="form-control" name="PAIS" value={PAIS} onChange={e=>onInputChange(e)}/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="RUC" class="form-label">RUC</label>
+                        <input type="text" class="form-control" name="RUC" value={RUC} onChange={e=>onInputChange(e)}/>
                         <label for="AP_PAT" class="form-label">RUC: </label>
-                        <input type="number" class="form-control" name="AP_PAT" value={AP_PAT} onChange={e=>onInputChange(e)}/>
+                        <input type="number" class="form-control" name="RUC" value={RUC} onChange={e=>onInputChange(e)}/>
                     </div>
                     <div class="mb-3">
                         <label for="AP_MAT" class="form-label">Pais</label>
-                        <input type="text" class="form-control" name="AP_MAT" value={AP_MAT} onChange={e=>onInputChange(e)}/>
+                        <input type="text" class="form-control" name="PAIS" value={PAIS} onChange={e=>onInputChange(e)}/>
                     </div>
                     <div className="text-center mb-4">
                         <button type="submit" className="btn btn-primary my-2">Regístrate</button>
                     </div>
                 </div>
+                <div className="container-fluid mt-4 text-center mb-5">
+                    <button className="btn btn-success">Registrar</button>
+                </div>
             </form>
-
-            
         </div>
     </>
     
