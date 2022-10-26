@@ -1,15 +1,15 @@
 //Formulario con participantes asistentes
 //a la fecha 
-
+import { useParams } from 'react-router-dom'
 import ParticipanteFil from "../components/ParticipanteFil"
 
 const lista = ["Pepito Manco", "Jefferson Farfan", "La foquita y aladino"]
 
 const ArmarLista = () => {
     const ListaParticipante = []
-    lista.forEach((participante,index) => 
-    {ListaParticipante.push(
-            <ParticipanteFil key={`${index}`} participante = {participante}/>
+    lista.forEach((participante, index) => {
+        ListaParticipante.push(
+            <ParticipanteFil key={`${index}`} participante={participante} />
         )
     })
     return ListaParticipante
@@ -18,6 +18,8 @@ const ArmarLista = () => {
 
 
 const Entidad_EventoDetalles = () => {
+    let {data} = useParams()
+    
     return (
         <div>
             <div>
@@ -29,40 +31,45 @@ const Entidad_EventoDetalles = () => {
                 <div className="container">
                     <div className="row mt-3">
                         <div className="col-sm">
-                            <div className="row mt-2">
-                                <div className="col-sm-6" ></div>
+                            <div className="row mt-2 ">
+                                <div className="col-sm-7" ></div>
 
-                                <div className="col-sm-3"></div>
+                                <div className="col-sm"></div>
 
-                                <div className="col-sm-3" id="mostrar" >
-                                    <label className="form-label" id="mostrar 1">Cantidad Total</label>
-                                    <label type="number" className="form-control" min="0" > {lista.length} </label>
+                                <div className="col-sm" id="mostrar" >
+                                    <label className="form-label" id="mostrar 1">Cantidad Total:</label>
+                                    <label type="number" className="form-control-lg" min="0" > {lista.length} </label>
                                 </div>
 
                             </div>
 
-                            <div className="mt-2">
+                            <div className="row mt-2">
+                                <div className="col-sm-3"></div>
 
-                            
-                            <div className="card-body table-responsive">
-                                <table className="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Nombres Apellidos</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {ArmarLista()}
-                                    </tbody>
-                                </table>
+                                <div className="col-sm-6 card-body table-responsive">
+                                    <table className="table">
+                                        <thead>
+                                            <tr>
+                                                <th className="text-center">Nombres Apellidos</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {ArmarLista()}                                            
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                                <div className="col-sm-3"></div>
 
                             </div>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 
