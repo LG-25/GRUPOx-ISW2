@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Evento } from '../services/ServiciosEvento.js'
-import { CartaEvento } from '../components/CartaEvento.jsx';
-import { Sidebar } from '../components/Sidebar.jsx';
+import { CartaEvento } from '../components/Entidad_CartaEvento.jsx';
+import { Sidebar } from '../components/Entidad_Sidebar.jsx';
 
+
+//Para usuario ENTIDAD
 export default function CatalogoEventos() {
 
     const [eventos, setEventos] = useState([])

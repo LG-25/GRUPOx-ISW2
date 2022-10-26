@@ -12,11 +12,8 @@ import SignUpUsuario from './views/SignUpUsuario';
 import RegistroEvento from './views/RegistroEvento';
 import SignupEntidad from './views/SignupEntidad';
 import Evento_Detalles from './views/Evento_Detalles';
-<<<<<<< HEAD
 import Entidad_EventoDetalles from './views/Entidad_EventoDetalles';
-=======
 import MisEventosUsuario from './views/MisEventosUsuario';
->>>>>>> 7b5013c08113200340e7725626b18116f9d17f26
 // ! Comentar este componente, solamente es para pruebas
 
 function App() {
@@ -34,11 +31,8 @@ function App() {
           <Route path="/SignupEntidad" component={SignupEntidad}></Route>
           <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
-<<<<<<< HEAD
           <Route path = "/DetalleEventoEntidad" component={Entidad_EventoDetalles}></Route>
-=======
           <Route path = "/misEventos" component={MisEventosUsuario}></Route>
->>>>>>> 7b5013c08113200340e7725626b18116f9d17f26
         </Switch>
       </Router>
     </>
