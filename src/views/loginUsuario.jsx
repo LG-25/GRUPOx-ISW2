@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';  
 
 const LoginUsuario = ()=> {
 
@@ -52,9 +53,15 @@ return(
                 <div className="my-4 text-center">
                     <button className="btn btn-success">Ingresar</button>
                 </div>
-                <div>
-                    <div className="fw-4 text-center">¿No tienes cuenta? Regístrate</div> 
-                    <div className="fw-4 text-center">Volver</div>
+                <div className="text-center">
+                    <Link to="/">
+                        <div className="fw-4 text-center">¿No tienes cuenta? Regístrate</div>
+                    </Link>
+                </div>
+                <div className="text-center">
+                    <Link to="/">
+                        <div className="fw-4 text-center">Volver</div>
+                    </Link>
                 </div>
 
             </div>

@@ -13,6 +13,9 @@ const HeadPrincipal = () => {
               <Link to ="/SignupEntidad">
                 <a class="btn primary-btn">Registro de entidad</a>
               </Link>
+              <Link to ="/LoginUsuario">
+                <a class="btn primary-btn">Login</a>
+              </Link>
               </div>
               <div class="col-lg-6 col-md-12 col-12">
                 <div class="header-content">
