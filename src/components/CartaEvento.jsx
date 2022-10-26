@@ -1,8 +1,6 @@
-
-import React, { useEffect, useState } from 'react'
-import { Evento } from '../services/ServiciosEvento.js'
+import { Evento } from '../services/ServiciosEvento.js';
 import ModalDetalleEvento from './ModalDetalleEvento.jsx';
-
+import React, { useEffect, useState } from 'react';
 
 export const CartaEvento = (props) => {
   const evento = props.evento;
