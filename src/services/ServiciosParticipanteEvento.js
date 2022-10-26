@@ -27,6 +27,7 @@ export class ParticipantesEvento{
         CO_USR_INVT : CO_USR_INVT,
         FH_INSCR : FH_INSCR,
         CO_ESTD : CO_ESTD
+        
         */
         try{
             const {NU_EVNT, CO_USR_INVT, FH_INSCR, CO_ESTD} = req.body;
