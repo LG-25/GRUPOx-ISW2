@@ -12,6 +12,7 @@ import RegistroEvento from './views/RegistroEvento';
 import SignUpUsuario from './views/SignUpUsuario';
 import SignupEntidad from './views/SignupEntidad';
 import Evento_Detalles from './views/Evento_Detalles';
+import EditarEvento from './views/EditarEvento';
 // ! Comentar este componente, solamente es para pruebas
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/SignupEntidad" component={SignupEntidad}></Route>
           <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
+          <Route path = "/EditarEvento" component = {EditarEvento}></Route>
         
         </Switch>
       </Router>
