@@ -56,6 +56,9 @@ const ModificarEvento = (props) => {
     console.log(data);
     console.log(data.fh_inicio);
 
+    const diaIni = new Date(evento.fh_inicio)
+    const diaFin = new Date(evento.fh_fin)
+
     
 
     
@@ -103,12 +106,12 @@ const ModificarEvento = (props) => {
                             
                             <label class="form-label mt-1">Fecha de Inicio</label>
                             <div className="col mt-2"></div>
-                                <input type="date" name="fh_inicio" className="form-control my-2" placeholder={data.fh_inicio} value={edita.fh_inicio} onChange={e => onInputChange(e)}/>
+                                <input type="date" name="fh_inicio" className="form-control my-2" placeholder={diaIni.toLocaleDateString()} value={edita.fh_inicio} onChange={e => onInputChange(e)}/>
                         </div>
 
                         <label class="form-label mt-1">Fecha de Fin</label>
                         <div className="col mt-2"> 
-                            <input type="date" name="fh_fin" className="form-control my-2" value={edita.fh_fin} onChange={e => onInputChange(e)}/>
+                            <input type="date" name="fh_fin" className="form-control my-2" value={diaFin.toLocaleDateString()} onChange={e => onInputChange(e)}/>
                         </div>
 
                         <label class="form-label mt-1">URL del evento</label>
