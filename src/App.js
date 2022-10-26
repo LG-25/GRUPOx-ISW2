@@ -40,7 +40,7 @@ function App() {
           <Route path = "/InicioEntidad" component={InicioEntidad}></Route>
           <Route path="/InicioUsuario" component={InicioUsuario}></Route>
           <Route path = "/DetalleEventoEntidad" component={Entidad_EventoDetalles}></Route>
-          <Route path = "/misEventos" component={MisEventosUsuario}></Route>
+          <Route path = "/misEventosUsuario" component={MisEventosUsuario}></Route>
   
         </Switch>
       </Router>

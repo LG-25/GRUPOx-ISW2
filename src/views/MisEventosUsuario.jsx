@@ -5,7 +5,7 @@ import { Sidebar } from '../components/Entidad_Sidebar.jsx';
 
 
 //Para usuario ENTIDAD
-export default function CatalogoEventos() {
+export default function EventosEntidad() {
 
     const [eventos, setEventos] = useState([])
     
@@ -13,7 +13,7 @@ export default function CatalogoEventos() {
     useEffect(() => {
         let data = sessionStorage.getItem("userEN");
         if (data === null) {
-            data = 2;
+            data = 1;
         }
         //Evento.ObtenerEventosEntidad(1)
         Evento.ObtenerEventosEntidad(data)

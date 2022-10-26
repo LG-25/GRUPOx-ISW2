@@ -1,7 +1,11 @@
 import { UsuarioInvitado } from "../classes/UsuarioInvitado";
-export class GestorUsuarios{//Cambiar a clase llamada USUARIO
+export class ServiciosUsuario{//Cambiar a clase llamada USUARIO
     constructor(){}
-    async obtenerUsuariosI(){
+    
+}
+export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
+    constructor(){}
+    static async obtenerUsuariosI(){
         const response = await fetch(`https://genium-backend.herokuapp.com/UsuariosI`);
         if (!response.ok){
             throw new Error('No se pudo obtener todos los usuarios invitados')
@@ -26,7 +30,7 @@ export class GestorUsuarios{//Cambiar a clase llamada USUARIO
             return usuariosI
         }
     }
-    async ObtenerUsuarioI(co_usr_inv){
+    static async ObtenerUsuarioI(co_usr_inv){
         const response = await fetch(`https://genium-backend.herokuapp.com/UsuariosI/${co_usr_inv}`)
         if(!response.ok){
             throw new Error('No se pudo obtener el usuario invitado')
@@ -47,7 +51,7 @@ export class GestorUsuarios{//Cambiar a clase llamada USUARIO
         }
     }
 
-    async actualizarUsuarioI(co_usr_inv, datos){
+    static async actualizarUsuarioI(co_usr_inv, datos){
         await fetch(`https://genium-backend.herokuapp.com/UsuariosI/${co_usr_inv}`,{
             method: "PUT",
             headers: {
@@ -65,8 +69,8 @@ export class GestorUsuarios{//Cambiar a clase llamada USUARIO
             )
         })
     }
-    /* METODO QUE ESTABA EN USUARIO INVITADO
-    async update(){
+    /* METODO QUE ESTABA EN USUARIO INVITADO*/
+    static async updateUsuarioI(){
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -87,5 +91,13 @@ export class GestorUsuarios{//Cambiar a clase llamada USUARIO
         }else{
             return response.json()
         }
-    } */
+    } 
+
+    static async validarUsuarioEN(){
+        //usuario entidad
+        const response = await fetch(`https://genium-backend.herokuapp.com/login?correo=${correoUSREN}&contra=${contraEN}`); 
+        //https://genium-backend.herokuapp.com/login?correo=javierenriqueos@gmail.com&contra=admi123
+        const res = await response.json();
+        return res
+}
 }
