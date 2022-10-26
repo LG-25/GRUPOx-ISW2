@@ -59,7 +59,7 @@ return(
                     </div>
                     <div className="my-4">
                         <label for="floatingInput">Contraseña</label>
-                        <input type="text" className="form-control"  placeholder="Contraseña" onChange={e => setContraEN(e.target.value)} value={contraEN}/>
+                        <input type="password" className="form-control"  placeholder="Contraseña" onChange={e => setContraEN(e.target.value)} value={contraEN}/>
                     </div>
                     <div className="my-4 text-center">
                         <button className="btn btn-success" onClick={validarUsuarioEN}>Ingresar</button>
@@ -85,7 +85,7 @@ return(
                 </div>
                 <div className="my-4">
                     <label for="floatingInput">Contraseña</label>
-                    <input type="text" className="form-control"  placeholder="Contraseña" onChange={e => setContra(e.target.value)} value={contra}/>
+                    <input type="password" className="form-control"  placeholder="Contraseña" onChange={e => setContra(e.target.value)} value={contra}/>
                 </div>
                 <div className="my-4 text-center">
                     <button className="btn btn-success" onClick={validarUsuario}>Ingresar</button>

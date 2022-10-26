@@ -10,6 +10,7 @@ import {makeStyles} from '@material-ui/core/styles';
 
 //Registro de participantes
 import {Servicio} from "../services/ServiciosEvento.js"
+import { ParticipantesEvento } from '../services/ServiciosParticipanteEvento';
 
 //Modal con mensaje de confirmación de registro- ESTILO
     const useStyles=makeStyles((theme)=>({
@@ -34,12 +35,19 @@ import {Servicio} from "../services/ServiciosEvento.js"
 
 const ModalDetalleEvento = (props) => {
     const [txtColor, setTxtColor] = useState('btn btn-success');
-    const modColor=()=>{
-        setTxtColor= "btn btn-secondary disabled"
-    }
 
-    //Registro de participantes
+    const modColor = () => {
+        setTxtColor = "btn btn-secondary disabled"
+    }
     
+    const [data, setdata] = useState({});
+    //Registro de participantes
+    // useEffect(()=>{
+    //     ParticipantesEvento.crearParticipanteEvento()
+    //     .then(result=>{
+    //         setdata(result);
+    //     })
+    // },[])
 
     //Modal con mensaje de confirmación de registro
     
@@ -88,11 +96,12 @@ const ModalDetalleEvento = (props) => {
                             </Modal>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
 
     </Modal>
+
+
 };
 export default ModalDetalleEvento

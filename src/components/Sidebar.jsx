@@ -11,6 +11,7 @@ export const Sidebar = () =>{
                 <ul>
                     <li><a href="#"><i class="fas fa-home"></i>Catalogo de eventos</a></li>
                     <li><a href="#"><i class="far fa-credit-card"></i>Eventos</a></li>
+                    <li><a href="../RegistroEvento"><i class="far fa-credit-card"></i>Formulario Eventos</a></li>
                 </ul>
                 <small class="text-muted px-3">Usuario</small>
                 <ul>

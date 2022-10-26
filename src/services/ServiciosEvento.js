@@ -1,4 +1,4 @@
-
+//porfavor Ricardo diferenciar la clase ServicioEvento con la clase Evento. Saludos. ATTE : Fabrizio 
 export class Evento{
     constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_event, ubic, fh_inicio, fh_fin, url_evnt, fg_vig, url_foto){
         this.nu_evnt    = nu_evnt;

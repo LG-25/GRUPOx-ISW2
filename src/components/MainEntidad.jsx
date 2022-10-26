@@ -29,7 +29,7 @@ const MainEntidad = () => {
                   </div>
                   <div className="row">
                     <div class="button">
-                      <Link to ="/misEventosUsuario">
+                      <Link to ="/misEventos">
                           <a class="btn primary-btn w-100">Mi Catálogo de eventos</a>
                       </Link>
                     </div>
