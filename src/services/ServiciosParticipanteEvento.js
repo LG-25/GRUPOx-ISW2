@@ -20,4 +20,32 @@ export class ParticipantesEvento{
             return participantesJson
         }
     }
+
+    static async crearParticipanteEvento(req, res){
+        /*
+        NU_EVNT : NU_EVNT,
+        CO_USR_INVT : CO_USR_INVT,
+        FH_INSCR : FH_INSCR,
+        CO_ESTD : CO_ESTD
+        
+        */
+        try{
+            const {NU_EVNT, CO_USR_INVT, FH_INSCR, CO_ESTD} = req.body;
+            const newParticipante = await ParticipantesEvento.crearParticipanteEvento({
+                NU_EVNT : NU_EVNT,
+                CO_USR_INVT : CO_USR_INVT,
+                FH_INSCR : FH_INSCR,
+                CO_ESTD : CO_ESTD
+            })
+            console.log(newParticipante);
+            res.json(newParticipante);
+        }
+        catch (error){
+            return res.status(500).json({message : error.message});
+        }
+    }
+
+
+
+
 }

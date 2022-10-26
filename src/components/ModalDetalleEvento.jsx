@@ -42,12 +42,12 @@ const ModalDetalleEvento = (props) => {
     
     const [data, setdata] = useState({});
     //Registro de participantes
-    useEffect(()=>{
-        ParticipantesEvento.crearParticipanteEvento()
-        .then(result=>{
-            setdata(result);
-        })
-    },[])
+    // useEffect(()=>{
+    //     ParticipantesEvento.crearParticipanteEvento()
+    //     .then(result=>{
+    //         setdata(result);
+    //     })
+    // },[])
 
     //Modal con mensaje de confirmación de registro
     
