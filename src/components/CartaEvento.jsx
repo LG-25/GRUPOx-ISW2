@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import { Evento } from '../services/ServiciosEvento.js'
 import ModalDetalleEvento from './ModalDetalleEvento.jsx';
-import React, { useEffect, useState } from 'react';
 import ModalQr from './ModalQr.jsx';
 
 export const CartaEvento = (props) => {

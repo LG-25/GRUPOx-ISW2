@@ -1,12 +1,12 @@
 //import { Modal, Button } from 'react-bootstrap';
 import React from 'react'
 import { useEffect, useState } from 'react';
-import { GestorUsuarios } from '../services/ServiciosUsuario.js';
+import { ServiciosUsuarioI } from '../services/ServiciosUsuario.js';
 import ModalMensaje from './ModalMensaje';
 const Modaledit = (props) => {
     const usuario = props.user;
 
-    const gestorUsuarios = new GestorUsuarios()
+    const gestorUsuarios = new ServiciosUsuarioI()
     const [txtNombre, setTxtNombre] = useState('');
     const [txtAp_pat, setTxtApPaterno] = useState('');
     const [txtAp_ma, setTxtCorreo] = useState(0);

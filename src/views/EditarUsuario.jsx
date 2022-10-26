@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
-import { GestorUsuarios } from "../services/ServiciosUsuario.js"
+import { ServiciosUsuarioI } from "../services/ServiciosUsuario.js"
 import Modaledit from "../components/Modaledit.component.jsx"
 const EditarUsuario=()=>{
     //const [datos, setDatos]= useState([])
     //const [openModal, setOpenModal]= useState(true);
     const [usuario, setUsuario] = useState([])
-    const gestorUsuarios = new GestorUsuarios();
+    const gestorUsuarios = new ServiciosUsuarioI();
     
     // Solamente se realizará una vez el useState
     useEffect(() => {
