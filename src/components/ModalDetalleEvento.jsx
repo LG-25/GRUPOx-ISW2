@@ -4,10 +4,11 @@ import { Modal } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 const ModalDetalleEvento = (props) => {
     const [txtColor, setTxtColor] = useState('btn btn-success');
-    const modColor=()=>{
-        setTxtColor= "btn btn-secondary disabled"
+
+    const modColor = () => {
+        setTxtColor = "btn btn-secondary disabled"
     }
-    return <Modal show = {props.mostrar} onHide={props.ocultar}>
+    return <Modal show={props.mostrar} onHide={props.ocultar}>
         <div class="card" style={{ maxWidth: "1540px" }}>
             <div class="row g-0">
                 <div class="col-md-4">
@@ -25,11 +26,12 @@ const ModalDetalleEvento = (props) => {
                         <p class="card-text"><small class="text-muted">Fecha fin: {props.fin} </small></p>
                         <ButtonLink nombre="Registrarse" color={txtColor} onRegis={modColor}></ButtonLink>
                     </div>
-                    
                 </div>
             </div>
         </div>
 
     </Modal>
+
+
 };
 export default ModalDetalleEvento

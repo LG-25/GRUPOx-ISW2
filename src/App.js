@@ -18,6 +18,8 @@ import InicioUsuario from './views/InicioUsuario';
 import Evento_Detalles from './views/Evento_Detalles';
 import Entidad_EventoDetalles from './views/Entidad_EventoDetalles';
 import MisEventosUsuario from './views/MisEventosUsuario';
+
+import MisEventosUsuarioI from './views/MisEventosUsuarioI';
 // ! Comentar este componente, solamente es para pruebas
 
 function App() {
@@ -40,6 +42,7 @@ function App() {
           <Route path="/InicioUsuario" component={InicioUsuario}></Route>
           <Route path = "/DetalleEventoEntidad" component={Entidad_EventoDetalles}></Route>
           <Route path = "/misEventos" component={MisEventosUsuario}></Route>
+          <Route path = "/misEventosUsuarioI" component={MisEventosUsuarioI}></Route>
         </Switch>
       </Router>
     </>
