@@ -22,7 +22,7 @@ export class Evento{
                 NO_EVNT     : body.no_evnt, 
                 QT_PERS     : body.qt_pers,  
                 QT_HRS      : body.qt_hrs,   
-                DESC_EVENT   : body.desc_event,
+                DESC_EVENT  : body.desc_event,
                 UBIC        : body.ubic,     
                 FH_INICIO   : body.fh_inicio,
                 FH_FIN      : body.fh_fin,   
@@ -31,7 +31,7 @@ export class Evento{
                 URL_FOTO    : body.url_foto
             })
         };
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${body.nu_evnt}`, requestOptions)
+        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${body.no_evnt}`, requestOptions)
         if(!response.ok){
             throw new Error('No se pudo actualizar el evento')
         }else{
@@ -41,7 +41,7 @@ export class Evento{
 
     // * Llamamos al controlador del lado del backend para que haga la eliminación del evento
     static async delete(){
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${this.nu_evnt}`, {
+        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${this.no_evnt}`, {
             method: 'DELETE'
         })
         if (!response.ok) {
@@ -83,8 +83,8 @@ export class Evento{
         }
     }
     // ! Función que buesca evento a través de su numero de evento
-    static async ObtenerEvento(nu_evnt){
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${nu_evnt}`);
+    static async ObtenerEvento(no_evnt){
+        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${no_evnt}`);
         // response.ok devuelve true o false
         // dependiendo del exito de la operacion
         if (!response.ok) {
