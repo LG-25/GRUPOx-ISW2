@@ -35,12 +35,9 @@ function App() {
           <Route path="/SignupEntidad" component={SignupEntidad}></Route>
           <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
-<<<<<<< HEAD
-=======
           <Route path = "/LoginUsuario" component={LoginUsuario}></Route>
           <Route path = "/InicioEntidad" component={InicioEntidad}></Route>
           <Route path="/InicioUsuario" component={InicioUsuario}></Route>
->>>>>>> b319b7400c9fbb9dd906c5ed2f2eb459fd361675
           <Route path = "/DetalleEventoEntidad" component={Entidad_EventoDetalles}></Route>
           <Route path = "/misEventos" component={MisEventosUsuario}></Route>
         </Switch>
