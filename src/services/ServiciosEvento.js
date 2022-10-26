@@ -118,10 +118,7 @@ export class Evento{
     // Función que busca los evento de una misma entidad a través de su codigo de entidad
     static async ObtenerEventosEntidad(co_usr){
         const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${co_usr}`);
-<<<<<<< HEAD
         //const response = await fetch(`https://genium-backend.herokuapp.com/eventos/`);
-=======
->>>>>>> 2ff4d9db4ad1750b7ba26b5deb443a84f0589db2
         // response.ok devuelve true o false
         // dependiendo del exito de la operacion
         if (!response.ok) {
@@ -129,7 +126,6 @@ export class Evento{
             throw new Error('No se pudo obtener el evento')
         } else {
             // devolvemos la consulta
-<<<<<<< HEAD
             const eventosJson = await response.json();
             const Lista = []
             Lista.push(eventosJson)
@@ -154,25 +150,4 @@ export class Evento{
             return eventos
     }
 }
-=======
-            const eventoJson = await response.json();
-            const evento = 
-                    //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
-                    new Evento(
-                        eventoJson.NO_EVNT, 
-                        eventoJson.NU_EVNT, 
-                        eventoJson.QT_PERS, 
-                        eventoJson.QT_HRS,
-                        eventoJson.DESC_EVENT,
-                        eventoJson.UBIC,
-                        eventoJson.FH_INICIO,
-                        eventoJson.FH_FIN,
-                        eventoJson.URL_EVNT,
-                        eventoJson.FG_VIG,
-                        eventoJson.URL_FOTO
-                    )
-            return evento
-        }
-    }
->>>>>>> 2ff4d9db4ad1750b7ba26b5deb443a84f0589db2
 }
