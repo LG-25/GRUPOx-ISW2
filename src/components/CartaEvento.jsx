@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react'
 import { Evento } from '../services/ServiciosEvento.js'
 =======
@@ -6,6 +7,11 @@ import React, { useEffect, useState } from 'react'
 import { Evento } from '../classes/Evento.js'
 import ModalDetalleEvento from './ModalDetalleEvento.jsx';
 >>>>>>> ea9e105 (Detalle evento implementado)
+=======
+import React, { useEffect, useState } from 'react'
+import { Evento } from '../classes/Evento.js'
+import ModalDetalleEvento from './ModalDetalleEvento.jsx';
+>>>>>>> df89a54 (Detalle evento implementado)
 
 export const CartaEvento = (props) => {
   const evento = props.evento;
