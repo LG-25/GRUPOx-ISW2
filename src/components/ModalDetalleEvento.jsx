@@ -8,6 +8,8 @@ import {Modal} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles';
 //Modal con mensaje de confirmación de registro- FIN IMPORT
 
+//Registro de participantes
+import {Servicio} from "../services/ServiciosEvento.js"
 
 //Modal con mensaje de confirmación de registro- ESTILO
     const useStyles=makeStyles((theme)=>({
@@ -35,6 +37,9 @@ const ModalDetalleEvento = (props) => {
     const modColor=()=>{
         setTxtColor= "btn btn-secondary disabled"
     }
+
+    //Registro de participantes
+    
 
     //Modal con mensaje de confirmación de registro
     
