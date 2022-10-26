@@ -28,7 +28,7 @@ const ModificarEvento = (props) => {
     Evento.update = async e => {
         e.preventDefault();
         await fetch("https://genium-backend.herokuapp.com/eventos",{
-            method: "POST",
+            method: "PUT",
             headers:{
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
