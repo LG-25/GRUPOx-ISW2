@@ -15,11 +15,7 @@ export const CartaEvento = (props) => {
           <p clasName="card-text">Max personas: {evento.qt_pers}</p>
           <p clasName="card-text">Fecha Inicio: {dayI.toLocaleDateString()}</p>
           <p clasName="card-text">Fecha Fin: {dayF.toLocaleDateString()}</p>
-<<<<<<< HEAD
-          <Link to={`/DetalleEventoEntidad:${evento.nu_evnt}`}>
-=======
           <Link to={`/DetalleEventoEntidad/${evento.nu_evnt}`}>
->>>>>>> main
               <a href="#" className="btn btn-primary">Ver Participantes</a>
           </Link>
         </div>

@@ -5,19 +5,16 @@ import ParticipanteFil from "../components/ParticipanteFil"
 import {ParticipantesEvento} from '../services/ServiciosParticipanteEvento.js'
 
 let {nro} = useParams()
-const lista = ObtenerParticipanteEvento(nro)
 
-/*const [eventos, setEventos] = useState([])
+const [participantes, setParticipantes] = useState([])
     
     // Solamente se realizará una vez el useState
     useEffect(() => {
-        Evento.ObtenerEventosEntidad(1)
+        ParticipantesEvento.ObtenerParticipanteEvento(nro)
             .then(result => {
-                setEventos(result)
+                setParticipantes(result)
             })
     }, [])
-
-*/
 
 const ArmarLista = () => {
     const ListaParticipante = []
