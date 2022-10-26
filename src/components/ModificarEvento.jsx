@@ -56,8 +56,8 @@ const ModificarEvento = (props) => {
     console.log(data);
     console.log(data.fh_inicio);
 
-    const diaIni = new Date(evento.fh_inicio)
-    const diaFin = new Date(evento.fh_fin)
+    const diaIni = new Date(data.fh_inicio)
+    const diaFin = new Date(data.fh_fin)
 
     
 
