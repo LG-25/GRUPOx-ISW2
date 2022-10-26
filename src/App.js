@@ -8,8 +8,8 @@ import {
 import CatalogoEventos from './views/CatalogoEventos';
 import Principal from './views/Principal';
 import EditarUsuario from './views/EditarUsuario';
-import SignUpUsuario from './views/SignUpUsuario';
 import RegistroEvento from './views/RegistroEvento';
+import SignUpUsuario from './views/SignUpUsuario';
 import SignupEntidad from './views/SignupEntidad';
 import LoginUsuario from './views/LoginUsuario';
 import InicioEntidad from './views/InicioEntidad';
@@ -31,8 +31,8 @@ function App() {
           <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
           <Route path = "/editarUsuario" component={EditarUsuario}></Route>
-          <Route path = "/SignUpUsuario" component={SignUpUsuario}/>
           <Route path = "/RegistroEvento" component={RegistroEvento}></Route>
+          <Route path = "/SignUpUsuario" component={SignUpUsuario}/>
           <Route path="/SignupEntidad" component={SignupEntidad}></Route>
           <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
@@ -47,6 +47,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;
