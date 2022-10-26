@@ -1,4 +1,4 @@
-
+//porfavor Ricardo diferenciar la clase ServicioEvento con la clase Evento. Saludos. ATTE : Fabrizio 
 export class Evento{
     constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_event, ubic, fh_inicio, fh_fin, url_evnt, fg_vig, url_foto){
         this.nu_evnt    = nu_evnt;
@@ -19,16 +19,16 @@ export class Evento{
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({   
-                NO_EVNT     : body.no_evnt, 
-                QT_PERS     : body.qt_pers,  
-                QT_HRS      : body.qt_hrs,   
-                DESC_EVENT  : body.desc_event,
-                UBIC        : body.ubic,     
-                FH_INICIO   : body.fh_inicio,
-                FH_FIN      : body.fh_fin,   
-                URL_EVNT    : body.url_evnt, 
-                FG_VIG      : body.fg_vig,
-                URL_FOTO    : body.url_foto
+                NO_EVNT     : this.no_evnt, 
+                QT_PERS     : this.qt_pers,  
+                QT_HRS      : this.qt_hrs,   
+                DESC_EVENT  : this.desc_event,
+                UBIC        : this.ubic,     
+                FH_INICIO   : this.fh_inicio,
+                FH_FIN      : this.fh_fin,   
+                URL_EVNT    : this.url_evnt, 
+                FG_VIG      : this.fg_vig,
+                URL_FOTO    : this.url_foto
             })
         };
         const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${body.no_evnt}`, requestOptions)

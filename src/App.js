@@ -11,7 +11,7 @@ import EditarUsuario from './views/EditarUsuario';
 import RegistroEvento from './views/RegistroEvento';
 import SignUpUsuario from './views/SignUpUsuario';
 import SignupEntidad from './views/SignupEntidad';
-import LoginUsuario from './views/LoginUsuario';
+import LoginUsuario from './views/loginUsuario';
 import InicioEntidad from './views/InicioEntidad';
 import InicioUsuario from './views/InicioUsuario';
 
