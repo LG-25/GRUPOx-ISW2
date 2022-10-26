@@ -11,7 +11,7 @@ import EditarUsuario from './views/EditarUsuario';
 import RegistroEvento from './views/RegistroEvento';
 import SignUpUsuario from './views/SignUpUsuario';
 import SignupEntidad from './views/SignupEntidad';
-import LoginUsuario from './views/loginUsuario';
+import LoginUsuario from './views/LoginUsuario';
 import InicioEntidad from './views/InicioEntidad';
 import InicioUsuario from './views/InicioUsuario';
 
@@ -41,7 +41,7 @@ function App() {
           <Route path = "/LoginUsuario" component={LoginUsuario}></Route>
           <Route path = "/InicioEntidad" component={InicioEntidad}></Route>
           <Route path="/InicioUsuario" component={InicioUsuario}></Route>
-          <Route path = "/DetalleEventoEntidad" component={Entidad_EventoDetalles}></Route>
+          <Route path = "/DetalleEventoEntidad/:nro" component={Entidad_EventoDetalles}></Route>
           <Route path = "/misEventos" component={MisEventosUsuario}></Route>
           <Route path = "/misEventosUsuarioI" component={MisEventosUsuarioI}></Route>
         </Switch>

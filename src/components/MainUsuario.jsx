@@ -36,14 +36,14 @@ const MainUsuario = () => {
                   </div>
                   <div className="row">
                     <div class="button">
-                      <Link to ="/catalogoEventos">
+                      <Link to ="/editarUsuario">
                           <a class="btn primary-btn w-100">Editar mi perfil</a>
                       </Link>
                     </div>
                   </div>
                   <div className="row ">
                     <div class="button ">
-                      <Link to ="/catalogoEventos">
+                      <Link to ="/misEventosUsuarioI">
                           <a class="btn primary-btn w-100">Ver mis eventos</a>
                       </Link>
                     </div>

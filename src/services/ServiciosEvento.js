@@ -14,7 +14,7 @@ export class Evento{
         this.url_foto   = url_foto;
     }
 
-    static async update(body){
+    static async update(){
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -22,7 +22,7 @@ export class Evento{
                 NO_EVNT     : this.no_evnt, 
                 QT_PERS     : this.qt_pers,  
                 QT_HRS      : this.qt_hrs,   
-                DESC_EVENT  : this.desc_event,
+                DESC_EVENT   : this.desc_event,
                 UBIC        : this.ubic,     
                 FH_INICIO   : this.fh_inicio,
                 FH_FIN      : this.fh_fin,   
@@ -31,7 +31,7 @@ export class Evento{
                 URL_FOTO    : this.url_foto
             })
         };
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${body.no_evnt}`, requestOptions)
+        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${this.nu_evnt}`, requestOptions)
         if(!response.ok){
             throw new Error('No se pudo actualizar el evento')
         }else{
@@ -41,7 +41,7 @@ export class Evento{
 
     // * Llamamos al controlador del lado del backend para que haga la eliminación del evento
     static async delete(){
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${this.no_evnt}`, {
+        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${this.nu_evnt}`, {
             method: 'DELETE'
         })
         if (!response.ok) {
@@ -83,8 +83,8 @@ export class Evento{
         }
     }
     // ! Función que buesca evento a través de su numero de evento
-    static async ObtenerEvento(no_evnt){
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${no_evnt}`);
+    static async ObtenerEvento(nu_evnt){
+        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${nu_evnt}`);
         // response.ok devuelve true o false
         // dependiendo del exito de la operacion
         if (!response.ok) {
@@ -127,27 +127,10 @@ export class Evento{
             throw new Error('No se pudo obtener el evento')
         } else {
             // devolvemos la consulta
-            const eventoJson = await response.json();
-            const evento = 
-                    //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
-                    new Evento(
-                        eventoJson.NO_EVNT, 
-                        eventoJson.NU_EVNT, 
-                        eventoJson.QT_PERS, 
-                        eventoJson.QT_HRS,
-                        eventoJson.DESC_EVENT,
-                        eventoJson.UBIC,
-                        eventoJson.FH_INICIO,
-                        eventoJson.FH_FIN,
-                        eventoJson.URL_EVNT,
-                        eventoJson.FG_VIG,
-                        eventoJson.URL_FOTO
-                    )
-            return evento
             const eventosJson = await response.json();
-            const Lista = []
-            Lista.push(eventosJson)
-            const eventos = Lista.map(evento => {
+            //const Lista = []
+            //Lista.push(eventosJson)
+            const eventos = eventosJson.map(evento => {
                 return(
                     //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
                     new Evento(
@@ -166,42 +149,6 @@ export class Evento{
                 )
             })
             return eventos
-        }
-    }
-    static async ObtenerEventosUsuarioI(co_usr){
-        //Local storage para obtener el cod de usuario
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${co_usr}`);
-        //const response = await fetch(`https://genium-backend.herokuapp.com/eventos/`);
-        // response.ok devuelve true o false
-        // dependiendo del exito de la operacion
-        if (!response.ok) {
-            //lanzamos error si no se pudo
-            throw new Error('No se pudo obtener el evento')
-        } else {
-            // devolvemos la consulta
-            const eventosJson = await response.json();
-            const Lista = []
-            Lista.push(eventosJson)
-            const eventos = Lista.map(evento => {
-                return(
-                    //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
-                    new Evento(
-                        evento.NU_EVNT, 
-                        evento.NO_EVNT, 
-                        evento.QT_PERS, 
-                        evento.QT_HRS,
-                        evento.DESC_EVENT,
-                        evento.UBIC,
-                        evento.FH_INICIO,
-                        evento.FH_FIN,
-                        evento.URL_EVNT,
-                        evento.FG_VIG,
-                        evento.URL_FOTO
-                    )
-                )
-            })
-            return eventos
-        }
     }
 }
-
+}
