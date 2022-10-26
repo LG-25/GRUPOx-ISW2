@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';  
+import { ServiciosUsuario, ServiciosUsuarioI } from "../services/ServiciosUsuario";
 
 const LoginUsuario = ()=> {
 
@@ -13,11 +14,12 @@ const LoginUsuario = ()=> {
 
     const validarUsuarioEN = async () =>{
         //usuario entidad
-        const response = await fetch(`https://genium-backend.herokuapp.com/login?correo=${correoUSREN}&contra=${contraEN}`); 
+        //const response = await fetch(`https://genium-backend.herokuapp.com/login?correo=${correoUSREN}&contra=${contraEN}`); 
         //https://genium-backend.herokuapp.com/login?correo=javierenriqueos@gmail.com&contra=admi123
-        const res = await response.json();
-
+        const res = await ServiciosUsuario.validarUsuarioEN(correoUSREN,contraEN);
+        console.log(res)
         const USRvalido = res["CO_USR"] != undefined;
+        console.log(res["CO_USR"])
         if(USRvalido){
             window.location.href='/InicioEntidad';
             sessionStorage.setItem('userEN' , `${res["CO_USR"]}`)
@@ -29,9 +31,9 @@ const LoginUsuario = ()=> {
 
     const validarUsuario = async () =>{
         //usuario invitado
-        const response = await fetch(`https://genium-backend.herokuapp.com/login?correo=${correoUSR}&contra=${contra}`); 
-        const res = await response.json();
-
+        //const response = await fetch(`https://genium-backend.herokuapp.com/login?correo=${correoUSR}&contra=${contra}`); 
+        const res = await ServiciosUsuarioI.validarUsuario(correoUSR,contra);
+        console.log(res)
         const USRvalido = res["CO_USR_INVT"] != undefined;
         if(USRvalido){
             window.location.href='/InicioUsuario';

@@ -2,6 +2,13 @@ import { UsuarioInvitado } from "../classes/UsuarioInvitado";
 export class ServiciosUsuario{//Cambiar a clase llamada USUARIO
     constructor(){}
     
+    static async validarUsuarioEN(correoUSREN,contraEN){
+        //usuario entidad
+        const response = await fetch(`https://genium-backend.herokuapp.com/login?correo=${correoUSREN}&contra=${contraEN}`); 
+        //https://genium-backend.herokuapp.com/login?correo=javierenriqueos@gmail.com&contra=admi123
+        const res = await response.json();
+        return res
+    }
 }
 export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
     constructor(){}
@@ -93,11 +100,10 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
         }
     } 
 
-    static async validarUsuarioEN(){
-        //usuario entidad
-        const response = await fetch(`https://genium-backend.herokuapp.com/login?correo=${correoUSREN}&contra=${contraEN}`); 
-        //https://genium-backend.herokuapp.com/login?correo=javierenriqueos@gmail.com&contra=admi123
+    static async validarUsuario(correoUSR,contra){
+        //usuario invitado
+        const response = await fetch(`https://genium-backend.herokuapp.com/login?correo=${correoUSR}&contra=${contra}`); 
         const res = await response.json();
         return res
-}
+    }
 }
