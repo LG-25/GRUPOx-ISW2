@@ -2,8 +2,11 @@
 //a la fecha 
 import { useParams } from 'react-router-dom'
 import ParticipanteFil from "../components/ParticipanteFil"
+import {ParticipantesEvento} from '../services/ServiciosParticipanteEvento.js'
 
-const lista = ["Pepito Manco", "Jefferson Farfan", "La foquita y aladino"]
+let {nro} = useParams()
+const lista = ObtenerParticipanteEvento(nro)
+
 
 const ArmarLista = () => {
     const ListaParticipante = []
@@ -16,10 +19,7 @@ const ArmarLista = () => {
 }
 
 
-
 const Entidad_EventoDetalles = () => {
-    let {data} = useParams()
-    
     return (
         <div>
             <div>
