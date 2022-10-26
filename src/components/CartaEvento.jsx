@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import { Evento } from '../classes/Evento.js'
+import { Evento } from '../services/ServiciosEvento.js'
 import ModalDetalleEvento from './ModalDetalleEvento.jsx';
 
 
