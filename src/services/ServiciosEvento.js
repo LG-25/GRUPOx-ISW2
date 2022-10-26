@@ -92,6 +92,7 @@ export class Evento{
             throw new Error('No se pudo obtener el evento')
         } else {
             // devolvemos la consulta
+<<<<<<< HEAD
             const eventoJson = await response.json();
             const evento = 
                     //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
@@ -111,5 +112,66 @@ export class Evento{
             return evento
         }
     }
+=======
+            const eventosJson = await response.json();
+            const eventos = eventosJson.map(evento => {
+                return(
+                    //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
+                    new Evento(
+                        evento.NU_EVNT, 
+                        evento.NO_EVNT, 
+                        evento.QT_PERS, 
+                        evento.QT_HRS,
+                        evento.DESC_EVENT,
+                        evento.UBIC,
+                        evento.FH_INICIO,
+                        evento.FH_FIN,
+                        evento.URL_EVNT,
+                        evento.FG_VIG,
+                        evento.URL_FOTO
+                    )
+                )
+            })
+            return eventos
+        }
+    }
+    
+    // Función que busca los evento de una misma entidad a través de su codigo de entidad
+    static async ObtenerEventosEntidad(co_usr){
+        //Local storage para obtener el cod de usuario
+        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/usuarios/${co_usr}`);//FALTA CAMBIAR EL LINK AL NUEVO SERVICIO HECHO :D
+        //const response = await fetch(`https://genium-backend.herokuapp.com/eventos/`);
+        // response.ok devuelve true o false
+        // dependiendo del exito de la operacion
+        if (!response.ok) {
+            //lanzamos error si no se pudo
+            throw new Error('No se pudo obtener el evento')
+        } else {
+            // devolvemos la consulta
+            const eventosJson = await response.json();
+            //const Lista = []
+            //Lista.push(eventosJson)
+            const eventos = eventosJson.map(evento => {
+                return(
+                    //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
+                    new Evento(
+                        evento.NU_EVNT, 
+                        evento.NO_EVNT, 
+                        evento.QT_PERS, 
+                        evento.QT_HRS,
+                        evento.DESC_EVENT,
+                        evento.UBIC,
+                        evento.FH_INICIO,
+                        evento.FH_FIN,
+                        evento.URL_EVNT,
+                        evento.FG_VIG,
+                        evento.URL_FOTO
+                    )
+                )
+            })
+            return eventos
+    }
+}
+>>>>>>> 6602af9 (Servicios participante evento y arreglar servicios eventos)
 }
 
