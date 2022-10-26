@@ -92,27 +92,6 @@ export class Evento{
             throw new Error('No se pudo obtener el evento')
         } else {
             // devolvemos la consulta
-<<<<<<< HEAD
-            const eventoJson = await response.json();
-            const evento = 
-                    //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
-                    new Evento(
-                        eventoJson.NO_EVNT, 
-                        eventoJson.NU_EVNT, 
-                        eventoJson.QT_PERS, 
-                        eventoJson.QT_HRS,
-                        eventoJson.DESC_EVENT,
-                        eventoJson.UBIC,
-                        eventoJson.FH_INICIO,
-                        eventoJson.FH_FIN,
-                        eventoJson.URL_EVNT,
-                        eventoJson.FG_VIG,
-                        eventoJson.URL_FOTO
-                    )
-            return evento
-        }
-    }
-=======
             const eventosJson = await response.json();
             const eventos = eventosJson.map(evento => {
                 return(
@@ -172,6 +151,5 @@ export class Evento{
             return eventos
     }
 }
->>>>>>> 6602af9 (Servicios participante evento y arreglar servicios eventos)
 }
 
