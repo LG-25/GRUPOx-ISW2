@@ -118,7 +118,7 @@ export class Evento{
     // Función que busca los evento de una misma entidad a través de su codigo de entidad
     static async ObtenerEventosEntidad(co_usr){
         //Local storage para obtener el cod de usuario
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${co_usr}`);
+        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/usuarios/${co_usr}`);//FALTA CAMBIAR EL LINK AL NUEVO SERVICIO HECHO :D
         //const response = await fetch(`https://genium-backend.herokuapp.com/eventos/`);
         // response.ok devuelve true o false
         // dependiendo del exito de la operacion
@@ -204,3 +204,4 @@ export class Evento{
         }
     }
 }
+

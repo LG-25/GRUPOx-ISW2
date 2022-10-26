@@ -10,6 +10,7 @@ import {makeStyles} from '@material-ui/core/styles';
 
 //Registro de participantes
 import {Servicio} from "../services/ServiciosEvento.js"
+import { ParticipantesEvento } from '../services/ServiciosParticipanteEvento';
 
 //Modal con mensaje de confirmación de registro- ESTILO
     const useStyles=makeStyles((theme)=>({
@@ -38,7 +39,39 @@ const ModalDetalleEvento = (props) => {
     const modColor = () => {
         setTxtColor = "btn btn-secondary disabled"
     }
-    return <Modal show={props.mostrar} onHide={props.ocultar}>
+    
+    const [data, setdata] = useState({});
+    //Registro de participantes
+    useEffect(()=>{
+        ParticipantesEvento.crearParticipanteEvento()
+        .then(result=>{
+            setdata(result);
+        })
+    },[])
+
+    //Modal con mensaje de confirmación de registro
+    
+    const styless = useStyles();
+    const[modal, setModal]=useState(false);
+    const OpenCloseModal = () =>{
+        setModal(!modal);
+    } 
+
+    const MODAL = (
+        <div className={styless.modal}>
+            <div align="center">
+                <div className="fs-4 my-4">¡Registro al evento exitoso!</div>
+            </div>
+                
+            <div align="center">
+                <button className="btn btn-primary  w-75" onClick={()=>OpenCloseModal()}>Regresar</button>
+            </div>
+                
+        </div>
+    ) 
+    // fin Modal con mensaje de confirmación de registro   
+
+    return <Modal show = {props.mostrar} onHide={props.ocultar}>
         <div class="card" style={{ maxWidth: "1540px" }}>
             <div class="row g-0">
                 <div class="col-md-4">
