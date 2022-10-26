@@ -11,6 +11,8 @@ export default function CatalogoEventos() {
     
     // Solamente se realizará una vez el useState
     useEffect(() => {
+        //let data = sessionStorage.getItem("key");
+        //Evento.ObtenerEventosEntidad(data)
         Evento.ObtenerEventosEntidad(1)
             .then(result => {
                 setEventos(result)
@@ -18,6 +20,7 @@ export default function CatalogoEventos() {
     }, [])
 
     console.log(eventos);
+
     return (
         <>
             <div className="row">

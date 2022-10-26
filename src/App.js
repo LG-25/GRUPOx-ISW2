@@ -38,8 +38,8 @@ function App() {
           <Route path = "/LoginUsuario" component={LoginUsuario}></Route>
           <Route path = "/InicioEntidad" component={InicioEntidad}></Route>
           <Route path="/InicioUsuario" component={InicioUsuario}></Route>
-          <Route path = "/DetalleEventoEntidad" component={Entidad_EventoDetalles}></Route>
-          <Route path = "/misEventos" component={MisEventosUsuario}></Route>
+          <Route path = "/DetalleEventoEntidad/:nro" component={Entidad_EventoDetalles}></Route>
+          <Route path = "/misEventosUsuario" component={MisEventosUsuario}></Route>
         </Switch>
       </Router>
     </>
