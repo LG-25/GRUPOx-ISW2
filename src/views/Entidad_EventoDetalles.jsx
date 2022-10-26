@@ -7,6 +7,17 @@ import {ParticipantesEvento} from '../services/ServiciosParticipanteEvento.js'
 let {nro} = useParams()
 const lista = ObtenerParticipanteEvento(nro)
 
+/*const [eventos, setEventos] = useState([])
+    
+    // Solamente se realizará una vez el useState
+    useEffect(() => {
+        Evento.ObtenerEventosEntidad(1)
+            .then(result => {
+                setEventos(result)
+            })
+    }, [])
+
+*/
 
 const ArmarLista = () => {
     const ListaParticipante = []
