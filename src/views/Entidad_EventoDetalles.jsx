@@ -1,33 +1,24 @@
 //Formulario con participantes asistentes
 //a la fecha 
-import { useParams } from 'react-router-dom'
+import { useParams} from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import ParticipanteFil from "../components/ParticipanteFil"
 import {ParticipantesEvento} from '../services/ServiciosParticipanteEvento.js'
 
-let {nro} = useParams()
-
-const [participantes, setParticipantes] = useState([])
-    
-    // Solamente se realizará una vez el useState
-    useEffect(() => {
-        ParticipantesEvento.ObtenerParticipanteEvento(nro)
-            .then(result => {
-                setParticipantes(result)
-            })
-    }, [])
-
-const ArmarLista = () => {
-    const ListaParticipante = []
-    lista.forEach((participante, index) => {
-        ListaParticipante.push(
-            <ParticipanteFil key={`${index}`} participante={participante} />
-        )
-    })
-    return ListaParticipante
-}
 
 
 const Entidad_EventoDetalles = () => {
+    const [participantes, setParticipantes] = useState([])
+    const {nro} = useParams()
+
+    useEffect(() => {
+        ParticipantesEvento.ObtenerParticipantesEvento(nro)
+        .then(result => {
+            console.log(result);
+            setParticipantes(result)
+        })
+    }, [])
+
     return (
         <div>
             <div>
@@ -46,7 +37,7 @@ const Entidad_EventoDetalles = () => {
 
                                 <div className="col-sm" id="mostrar" >
                                     <label className="form-label" id="mostrar 1">Cantidad Total:</label>
-                                    <label type="number" className="form-control-lg" min="0" > {lista.length} </label>
+                                    <label type="number" className="form-control-lg" min="0" > {participantes.length} </label>
                                 </div>
 
                             </div>
@@ -62,7 +53,12 @@ const Entidad_EventoDetalles = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {ArmarLista()}                                            
+                                            {participantes.map(participante => {
+                                                return(
+                                                    <div>
+                                                        {participante.NOM + ' ' + participante.AP_PAT + ' ' + participante.AP_MAT}
+                                                    </div> )
+                                            })}                                            
                                         </tbody>
                                     </table>
 

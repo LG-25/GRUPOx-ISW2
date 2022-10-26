@@ -1,7 +1,7 @@
 //
 export class ParticipantesEvento{
     constructor(){}
-    static async ObtenerParticipantesEvento(cod){
+    static async ObtenerParticipantesEvento(cod) {
         const response = await fetch(`https://genium-backend.herokuapp.com/participantes/${cod}`);
         // response.ok devuelve true o false
         // dependiendo del exito de la operacion
@@ -17,7 +17,7 @@ export class ParticipantesEvento{
                     new ParticipantesEvento()
                 )
             })
-            return participantes
+            return participantesJson
         }
     }
 }
