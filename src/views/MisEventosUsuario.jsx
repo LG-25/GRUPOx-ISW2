@@ -11,7 +11,7 @@ export default function CatalogoEventos() {
     
     // Solamente se realizará una vez el useState
     useEffect(() => {
-        Evento.obtenerEventos()
+        Evento.ObtenerEventosEntidad(1)
             .then(result => {
                 setEventos(result)
             })
