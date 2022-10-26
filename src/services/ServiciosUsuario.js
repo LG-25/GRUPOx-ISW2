@@ -1,4 +1,4 @@
-import { UsuarioInvitado } from "./UsuarioInvitado";
+import { UsuarioInvitado } from "../classes/UsuarioInvitado";
 export class GestorUsuarios{//Cambiar a clase llamada USUARIO
     constructor(){}
     async obtenerUsuariosI(){
