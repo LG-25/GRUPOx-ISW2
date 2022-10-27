@@ -8,10 +8,13 @@ import { Sidebar } from '../components/Sidebar.jsx';
 export default function CatalogoEventos() {
 
     const [eventos, setEventos] = useState([])
-    
+    let data = sessionStorage.getItem("userEN");
+        if (data === null) {
+            data = 1;
+        }
     // Solamente se realizará una vez el useState
     useEffect(() => {
-        Evento.ObtenerEventosUsuarioI(1)
+        Evento.ObtenerEventosUsuarioI(data)
             .then(result => {
                 setEventos(result)
             })
