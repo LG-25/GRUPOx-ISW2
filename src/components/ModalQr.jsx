@@ -5,7 +5,11 @@ import { useEffect, useState } from 'react';
 import QRCode from "qrcode";
 const ModalQr = (props) => {
     const [src, setSrc] = useState('');
-    const url = `https://genium-backend.herokuapp.com/?nroEvento=${props.nu_evnt}&nroUsuario=${1}`;
+    let data = sessionStorage.getItem("userEN");
+        if (data === null) {
+            data = 1;
+        }
+    const url = `https://genium-backend.herokuapp.com/?nroEvento=${props.nu_evnt}&nroUsuario=${data}`;
     useEffect(() => {
         QRCode.toDataURL(url).then((data) => {
             setSrc(data);

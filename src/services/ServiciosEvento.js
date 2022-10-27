@@ -162,9 +162,7 @@ static async ObtenerEventosUsuarioI(co_usr){
     } else {
         // devolvemos la consulta
         const eventosJson = await response.json();
-        const Lista = []
-        Lista.push(eventosJson)
-        const eventos = Lista.map(evento => {
+        const eventos = eventosJson.map(evento => {
             return(
                 //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
                 new Evento(
