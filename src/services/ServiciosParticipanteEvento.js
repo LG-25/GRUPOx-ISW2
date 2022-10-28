@@ -21,30 +21,31 @@ export class ParticipantesEvento{
         }
     }
 
-    static async crearParticipanteEvento(req, res){
         /*
         NU_EVNT : NU_EVNT,
         CO_USR_INVT : CO_USR_INVT,
         FH_INSCR : FH_INSCR,
         CO_ESTD : CO_ESTD
-        
         */
-        try{
-            const {NU_EVNT, CO_USR_INVT, FH_INSCR, CO_ESTD} = req.body;
-            const newParticipante = await ParticipantesEvento.crearParticipanteEvento({
-                NU_EVNT : NU_EVNT,
-                CO_USR_INVT : CO_USR_INVT,
-                FH_INSCR : FH_INSCR,
-                CO_ESTD : CO_ESTD
+    
+    static async CrearParticipanteEvento(nu_evnt, co_usr_inv, fh_inscr, co_estd){
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                NU_EVNT : nu_evnt,
+                CO_USR_INVT : co_usr_inv,
+                FH_INSCR : fh_inscr,
+                CO_ESTD : co_estd
             })
-            console.log(newParticipante);
-            res.json(newParticipante);
+        };
+        const response = await fetch(`https://genium-backend.herokuapp.com/participantes`, requestOptions)
+        if(!response.ok){
+            throw new Error('No se pudo registrar el participante en el evento')
+        }else{
+            return response.json()
         }
-        catch (error){
-            return res.status(500).json({message : error.message});
-        }
-    }
-
+    } 
 
 
 
