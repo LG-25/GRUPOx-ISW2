@@ -9,7 +9,6 @@ import {makeStyles} from '@material-ui/core/styles';
 //Modal con mensaje de confirmación de registro- FIN IMPORT
 
 //Registro de participantes
-import {Servicio} from "../services/ServiciosEvento.js"
 import { ParticipantesEvento } from '../services/ServiciosParticipanteEvento';
 
 //Modal con mensaje de confirmación de registro- ESTILO
@@ -56,7 +55,16 @@ const ModalDetalleEvento = (props) => {
     const OpenCloseModal = () =>{
         setModal(!modal);
     } 
+    const LAfuncion = () =>{
+        const fecha = Date.now()
+        let cod = sessionStorage.getItem("userEN");
+        if (cod === null) {
+            cod = 1;
+        }
+        ParticipantesEvento.CrearParticipanteEvento(props.nu_evnt,cod,fecha,1)
+        OpenCloseModal()
 
+    }
     const MODAL = (
         <div className={styless.modal}>
             <div align="center">
@@ -71,7 +79,7 @@ const ModalDetalleEvento = (props) => {
     ) 
     // fin Modal con mensaje de confirmación de registro   
 
-    return <Modal show = {props.mostrar} onHide={props.ocultar}>
+    return <Modal show = {props.mostrar} onHide={props.ocultar} open={modal}>
         <div class="card" style={{ maxWidth: "1540px" }}>
             <div class="row g-0">
                 <div class="col-md-4">

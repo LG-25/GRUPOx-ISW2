@@ -21,7 +21,7 @@ import MisEventosUsuario from './views/MisEventosUsuario';
 
 import MisEventosUsuarioI from './views/MisEventosUsuarioI';
 // ! Comentar este componente, solamente es para pruebas
-import MensajeRegistroEvento from './components/MensajeRegistroEvento';
+import DetallesE from './components/DetallesE';
 
 function App() {
   return (
@@ -44,6 +44,7 @@ function App() {
           <Route path = "/DetalleEventoEntidad/:nro" component={Entidad_EventoDetalles}></Route>
           <Route path = "/misEventos" component={MisEventosUsuario}></Route>
           <Route path = "/misEventosUsuarioI" component={MisEventosUsuarioI}></Route>
+          <Route path = "/DetallesE" component={DetallesE}></Route>
         </Switch>
       </Router>
     </>
