@@ -18,6 +18,7 @@ export const CartaEvento = (props) => {
     //setDescription(evento.desc_event)
   }
   const butOnClick =()=>{
+    console.log("entraaaa")
     setDebeMostrarModal(true)
     setDescription(evento.desc_event)
   }

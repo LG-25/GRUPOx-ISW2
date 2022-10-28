@@ -21,29 +21,29 @@ export class ParticipantesEvento{
         }
     }
 
-    static async crearParticipanteEvento(req, res){
-        /*
-        NU_EVNT : NU_EVNT,
-        CO_USR_INVT : CO_USR_INVT,
-        FH_INSCR : FH_INSCR,
-        CO_ESTD : CO_ESTD
-        
-        */
-        try{
-            const {NU_EVNT, CO_USR_INVT, FH_INSCR, CO_ESTD} = req.body;
-            const newParticipante = await ParticipantesEvento.crearParticipanteEvento({
-                NU_EVNT : NU_EVNT,
-                CO_USR_INVT : CO_USR_INVT,
-                FH_INSCR : FH_INSCR,
-                CO_ESTD : CO_ESTD
+    /* METODO QUE ESTABA EN USUARIO INVITADO*/
+    static async updateUsuarioI(){
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({   
+                NOM_USR: this.nom_usr,
+                CORREO: this.correo,
+                CONTRA: this.contra,
+                NOM: this.nom,
+                AP_PAT: this.ap_pat,
+                AP_MAT: this.ap_mat,
+                FH_NACIMIENTO: this.fh_nacimiento,
+                FH_CREACION: this.fh_creacion
             })
-            console.log(newParticipante);
-            res.json(newParticipante);
+        };
+        const response = await fetch(`https://genium-backend.herokuapp.com//usuariosI/${this.nu_evnt}`, requestOptions)
+        if(!response.ok){
+            throw new Error('No se pudo actualizar el evento')
+        }else{
+            return response.json()
         }
-        catch (error){
-            return res.status(500).json({message : error.message});
-        }
-    }
+    } 
 
 
 
