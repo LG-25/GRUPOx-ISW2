@@ -39,21 +39,6 @@ export const CartaEvento = (props) => {
           <p className="card-text">Fecha Fin: {dayF.toLocaleDateString()}</p>
           <a href="#" className="btn btn-primary" onClick={butOnClick2}>Ver detalles</a>
         </div>
-        <button className="btn btn-primary w-100 text-dark" onClick={()=>butOnClick2()} >Registrarse</button>
-                            <Modal
-                                open = {debeMostrarModal}
-                                onClose={()=>butOnClick2()}>
-                                <div className=''>
-            <div align="center">
-                <div className="fs-4 my-4">¡Registro al evento exitoso!</div>
-            </div>
-                
-            <div align="center">
-                <button className="btn btn-primary  w-75" onClick={()=>butOnClick2()}>Regresar</button>
-            </div>
-                
-        </div>
-                            </Modal>
         <ModalDetalleEvento nro={evento.nu_evnt} nombre={evento.no_evnt} qHoras={evento.qt_hrs} ubic={evento.ubic} qPers={evento.qt_pers} url={evento.url_evnt} inicio={evento.fh_inicio} fin={evento.fh_fin}  mostrar={debeMostrarModal} ocultar={onModalClose}></ModalDetalleEvento>
       </div>
     )
