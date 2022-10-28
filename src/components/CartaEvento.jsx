@@ -4,7 +4,7 @@ import { Modal } from 'react-bootstrap';
 import { Evento } from '../services/ServiciosEvento.js'
 import ModalDetalleEvento from './ModalDetalleEvento.jsx';
 import ModalQr from './ModalQr.jsx';
-
+import { ReactNode } from 'react';
 
 export const CartaEvento = (props) => {
   const evento = props.evento;
@@ -41,6 +41,9 @@ export const CartaEvento = (props) => {
         </div>
         <ModalDetalleEvento nro={evento.nu_evnt} nombre={evento.no_evnt} qHoras={evento.qt_hrs} ubic={evento.ubic} qPers={evento.qt_pers} url={evento.url_evnt} inicio={evento.fh_inicio} fin={evento.fh_fin}  mostrar={debeMostrarModal} ocultar={onModalClose}></ModalDetalleEvento>
       </div>
+
+        //Aqui presentes Ricardo y Fabrizio
+
     )
   }else if(props.tipo =="registrado"){
     return (
