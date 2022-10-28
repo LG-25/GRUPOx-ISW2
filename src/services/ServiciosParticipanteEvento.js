@@ -21,27 +21,6 @@ export class ParticipantesEvento{
         }
     }
 
-<<<<<<< HEAD
-    /* METODO QUE ESTABA EN USUARIO INVITADO*/
-    static async updateUsuarioI(){
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({   
-                NOM_USR: this.nom_usr,
-                CORREO: this.correo,
-                CONTRA: this.contra,
-                NOM: this.nom,
-                AP_PAT: this.ap_pat,
-                AP_MAT: this.ap_mat,
-                FH_NACIMIENTO: this.fh_nacimiento,
-                FH_CREACION: this.fh_creacion
-            })
-        };
-        const response = await fetch(`https://genium-backend.herokuapp.com//usuariosI/${this.nu_evnt}`, requestOptions)
-        if(!response.ok){
-            throw new Error('No se pudo actualizar el evento')
-=======
         /*
         NU_EVNT : NU_EVNT,
         CO_USR_INVT : CO_USR_INVT,
@@ -63,15 +42,10 @@ export class ParticipantesEvento{
         const response = await fetch(`https://genium-backend.herokuapp.com/participantes`, requestOptions)
         if(!response.ok){
             throw new Error('No se pudo registrar el participante en el evento')
->>>>>>> 67757f264a89492d0a435e3f6c709de0b0d02b06
         }else{
             return response.json()
         }
     } 
-<<<<<<< HEAD
-
-=======
->>>>>>> 67757f264a89492d0a435e3f6c709de0b0d02b06
 
 
 

@@ -54,7 +54,7 @@ export const CartaEvento = (props) => {
                 
         </div>
                             </Modal>
-        <ModalDetalleEvento nombre={evento.no_evnt} qHoras={evento.qt_hrs} ubic={evento.ubic} qPers={evento.qt_pers} url={evento.url_evnt} inicio={evento.fh_inicio} fin={evento.fh_fin}  mostrar={debeMostrarModal} ocultar={onModalClose}></ModalDetalleEvento>
+        <ModalDetalleEvento nro={evento.nu_evnt} nombre={evento.no_evnt} qHoras={evento.qt_hrs} ubic={evento.ubic} qPers={evento.qt_pers} url={evento.url_evnt} inicio={evento.fh_inicio} fin={evento.fh_fin}  mostrar={debeMostrarModal} ocultar={onModalClose}></ModalDetalleEvento>
       </div>
     )
   }else if(props.tipo =="registrado"){

@@ -57,9 +57,14 @@ const ModalDetalleEvento = (props) => {
     const OpenCloseModal = () =>{
         setOpen(false);
     } 
-<<<<<<< HEAD
     const OpenModal=()=>{
         setOpen(true)
+        let data = sessionStorage.getItem("userEN");
+        if (data === null) {
+            data = 1;
+        }
+        const fecha = Date.now()
+        ParticipantesEvento.CrearParticipanteEvento(props.nro,data,fecha,1)
     }
     const onModalClose=()=>{
         setOpen(false)
@@ -85,33 +90,6 @@ const ModalDetalleEvento = (props) => {
 
 
     return <Modal show = {props.mostrar} onHide={props.ocultar}>
-=======
-    const LAfuncion = () =>{
-        const fecha = Date.now()
-        let cod = sessionStorage.getItem("userEN");
-        if (cod === null) {
-            cod = 1;
-        }
-        ParticipantesEvento.CrearParticipanteEvento(props.nu_evnt,cod,fecha,1)
-        OpenCloseModal()
-
-    }
-    const MODAL = (
-        <div className={styless.modal}>
-            <div align="center">
-                <div className="fs-4 my-4">¡Registro al evento exitoso!</div>
-            </div>
-                
-            <div align="center">
-                <button className="btn btn-primary  w-75" onClick={()=>OpenCloseModal()}>Regresar</button>
-            </div>
-                
-        </div>
-    ) 
-    // fin Modal con mensaje de confirmación de registro   
-
-    return <Modal show = {props.mostrar} onHide={props.ocultar} open={modal}>
->>>>>>> 67757f264a89492d0a435e3f6c709de0b0d02b06
         <div class="card" style={{ maxWidth: "1540px" }}>
             <div class="row g-0">
                 <div class="col-md-4">
