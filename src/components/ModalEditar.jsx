@@ -1,39 +1,56 @@
 import React from "react";
 import { useState} from "react";
 import {Modal, Button} from '@material-ui/core';
-import {makeStyles} from '@material-ui/core/styles';
 
 
-    /*Estilo Modal*/
-    const useStyles=makeStyles((theme)=>({
-        modal:{
-          position:'absolute',
-          width:400,
-          backgroundColor:'white',
-          padding: theme.spacing(2,4,3,4),
-          top:'50%',
-          left:'50%',
-          transform:'translate(-50%,-50%)',
-        },
-        textfield:{
-          width:'100%'
-        },
-        
-        container:{
-            textAlign: 'center'
-        }
-      }))
+
+const ModalMensaje = (props)=>{
     
+  return(
+      <div className="modalBackground">
+          <div className="modalContainer">
+              <div className="titleCloseBtn">
+                  <button onClick={()=>props.closeModal(false)}> X </button>
+              </div>
+              <div className="body">
+                  <p>
+                      Se registrarán los cambios realizados
+                  </p>
+              </div>
+              <div className="footer">
+                  <button id="cancelBtn" onClick={()=>props.closeModal(false)}>Cancelar</button>
+                  <button onClick={()=>props.confirmar()}>Confirmar</button>
+              </div>
+          </div>
+      </div>
+  )
+  
+}   
     
 const ModalEditar = ()=>{
 
-    
-    const styless = useStyles();
+    return(
+      <div className="modalBackground">
+          <div className="modalContainer">
+              <div className="titleCloseBtn">
+                  <button onClick={()=>props.closeModal(false)}> Cerrar </button>
+              </div>
+              <div className="body">
+                  <p>Se han actualizado los datos del evento de forma exitosa</p>
+              </div>
+              <div className="footer">
+                  <button id="cancelBtn" onClick={()=>props.closeModal(false)}>Cancelar</button>
+                  <button onClick={()=>props.confirmar()}>Confirmar</button>
+              </div>
+          </div>
+      </div>
+    );
+    /*const styless = useStyles();
     const[modal, setModal]=useState(false);
     const OpenCloseModal = () =>{
         setModal(!modal);
     }
-    /*MODAL*/
+    /*MODAL
       const MODAL=(
         <div className={styless.modal}>
             <div align="center">
@@ -41,7 +58,7 @@ const ModalEditar = ()=>{
             </div>
         </div>
       ) 
-    /*Boton ingreso al modal*/
+    /*Boton ingreso al modal
     return(
     <div className = {styless.container}>
         <button className="btn btn-primary text-light" onClick={()=>OpenCloseModal()}>Actualizar datos</button>
@@ -51,7 +68,7 @@ const ModalEditar = ()=>{
             {MODAL}
         </Modal>
     </div>
-    );
+    );*/
     
 }
 

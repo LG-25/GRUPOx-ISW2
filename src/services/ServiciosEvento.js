@@ -14,7 +14,7 @@ export class Evento{
         this.url_foto   = url_foto;
     }
 
-    static async update(body){
+    static async update(nu_evnt, body){
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -31,7 +31,7 @@ export class Evento{
                 URL_FOTO    : body.url_foto
             })
         };
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${body.no_evnt}`, requestOptions)
+        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${nu_evnt}`, requestOptions)
         if(!response.ok){
             throw new Error('No se pudo actualizar el evento')
         }else{
@@ -83,8 +83,8 @@ export class Evento{
         }
     }
     // ! Función que buesca evento a través de su numero de evento
-    static async ObtenerEvento(no_evnt){
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${no_evnt}`);
+    static async ObtenerEvento(nu_evnt){
+        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${nu_evnt}`);
         // response.ok devuelve true o false
         // dependiendo del exito de la operacion
         if (!response.ok) {

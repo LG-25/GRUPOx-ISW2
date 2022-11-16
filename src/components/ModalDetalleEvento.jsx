@@ -1,6 +1,6 @@
 import React from 'react'
 import ButtonLink from "./ButtonIns.component"
-import { Modal } from 'react-bootstrap';
+import { Modal } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 const ModalDetalleEvento = (props) => {
     const [txtColor, setTxtColor] = useState('btn btn-success');
