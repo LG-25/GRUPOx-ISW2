@@ -1,5 +1,6 @@
 import React from 'react'
 import ButtonLink from "./ButtonIns.component"
+import { Modal } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 
 
