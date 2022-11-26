@@ -65,7 +65,7 @@ return(
                         <button className="btn btn-success" onClick={validarUsuarioEN}>Ingresar</button>
                     </div>
                     <div className="text-center">
-                        <Link to="/">
+                        <Link to="/SignupEntidad">
                             <div className="fw-4 text-center">¿No tienes cuenta? Regístrate</div>
                         </Link>
                     </div>
@@ -91,7 +91,7 @@ return(
                     <button className="btn btn-success" onClick={validarUsuario}>Ingresar</button>
                 </div>
                 <div className="text-center">
-                    <Link to="/">
+                    <Link to="/SignUpUsuario">
                         <div className="fw-4 text-center">¿No tienes cuenta? Regístrate</div>
                     </Link>
                 </div>
