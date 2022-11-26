@@ -22,6 +22,7 @@ import MisEventosUsuario from './views/MisEventosUsuario';
 import MisEventosUsuarioI from './views/MisEventosUsuarioI';
 // ! Comentar este componente, solamente es para pruebas
 import DetallesE from './components/DetallesE';
+import EditarEvento from './views/EditarEvento';
 
 function App() {
   return (
@@ -35,16 +36,17 @@ function App() {
           <Route path = "/editarUsuario" component={EditarUsuario}></Route>
           <Route path = "/RegistroEvento" component={RegistroEvento}></Route>
           <Route path = "/SignUpUsuario" component={SignUpUsuario}/>
-          <Route path="/SignupEntidad" component={SignupEntidad}></Route>
+          <Route path=  "/SignupEntidad" component={SignupEntidad}></Route>
           <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
           <Route path = "/LoginUsuario" component={LoginUsuario}></Route>
           <Route path = "/InicioEntidad" component={InicioEntidad}></Route>
-          <Route path="/InicioUsuario" component={InicioUsuario}></Route>
+          <Route path=  "/InicioUsuario" component={InicioUsuario}></Route>
           <Route path = "/DetalleEventoEntidad/:nro" component={Entidad_EventoDetalles}></Route>
           <Route path = "/misEventos" component={MisEventosUsuario}></Route>
           <Route path = "/misEventosUsuarioI" component={MisEventosUsuarioI}></Route>
           <Route path = "/DetallesE" component={DetallesE}></Route>
+          <Route path = "/EditarEvento" component={EditarEvento}></Route>
         </Switch>
       </Router>
     </>
