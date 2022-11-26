@@ -5,13 +5,12 @@ import { Evento } from "../services/ServiciosEvento.js"
 
 const EditarEvento = () => {
 
-    const [eventoM, setEventoM] = useState([]);
-    const evento = new Evento();
+    const [eventoM, setEventoM] = useState({});
     
     useEffect(() => {
-        evento.ObtenerEvento(10)
-            .then(result => {
-                setEventoM(result)
+        Evento.ObtenerEvento(10)
+        .then(result => {
+            setEventoM(result)
             })
     }, [])
 

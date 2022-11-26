@@ -92,8 +92,7 @@ export class Evento{
             throw new Error('No se pudo obtener el evento')
         } else {
             // devolvemos la consulta
-            const eventosJson = await response.json();
-            const eventos = eventosJson.map(evento => {
+            const evento = await response.json();
                 return(
                     //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
                     new Evento(
@@ -110,8 +109,6 @@ export class Evento{
                         evento.URL_FOTO
                     )
                 )
-            })
-            return eventos
         }
     }
     

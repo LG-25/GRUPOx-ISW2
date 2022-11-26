@@ -27,7 +27,7 @@ const ModalMensaje = (props)=>{
   
 }   
     
-const ModalEditar = ()=>{
+const ModalEditar = (props)=>{
 
     return(
       <div className="modalBackground">
@@ -44,32 +44,7 @@ const ModalEditar = ()=>{
               </div>
           </div>
       </div>
-    );
-    /*const styless = useStyles();
-    const[modal, setModal]=useState(false);
-    const OpenCloseModal = () =>{
-        setModal(!modal);
-    }
-    /*MODAL
-      const MODAL=(
-        <div className={styless.modal}>
-            <div align="center">
-                <h4 className="text-color2 fw-bold">Se han actualizado los datos del evento de forma exitosa.</h4>
-            </div>
-        </div>
-      ) 
-    /*Boton ingreso al modal
-    return(
-    <div className = {styless.container}>
-        <button className="btn btn-primary text-light" onClick={()=>OpenCloseModal()}>Actualizar datos</button>
-        <Modal
-            open = {modal}
-            onClose={OpenCloseModal}>
-            {MODAL}
-        </Modal>
-    </div>
-    );*/
-    
+    );    
 }
 
 export default ModalEditar;

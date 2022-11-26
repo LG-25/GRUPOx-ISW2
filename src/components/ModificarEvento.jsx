@@ -9,19 +9,17 @@ const ModificarEvento = (props) => {
     
     
     const eventoM = props.events;
-
-    const evento = new Evento()
-    const [EvNom, setEvNom] = useState('');
-    const [CantP, setCantP] = useState('');
-    const [CantH, setCantH] = useState('');
-    const [Desc, setDesc] = useState('');
-    const [Ubi, setUbi] = useState('');
-    //const [FecIni, setFecIni] = useState('');
-    //const[FecFin, setFecFin] = useState('');
-    const[Url, setUrl] = useState('');
+    const [EvNom, setEvNom] = useState(eventoM.no_evnt);
+    const [CantP, setCantP] = useState(eventoM.qt_pers);
+    const [CantH, setCantH] = useState(eventoM.qt_hrs);
+    const [Desc, setDesc] = useState(eventoM.desc_event);
+    const [Ubi, setUbi] = useState(eventoM.ubic);
+    const [FecIni, setFecIni] = useState(eventoM.fh_inicio);
+    const[FecFin, setFecFin] = useState(eventoM.fh_fin);
+    const[Url, setUrl] = useState(eventoM.url_evnt);
     //cambiar en el formulario vigencia por texto y no booleano
-    const[Vig, setVig] = useState('');
-    const[Foto, setFoto] = useState('');
+    const[Vig, setVig] = useState(eventoM.fg_vig);
+    const[Foto, setFoto] = useState(eventoM.url_foto);
     const [openModal, setOpenModal]= useState(false);
         
     const EvNomOnChange = (e) => {
@@ -58,8 +56,8 @@ const ModificarEvento = (props) => {
         setOpenModal(true);
     }
     const btnConfirmarOnClick=()=>{
-        evento.update(10, 
-            [EvNom, CantP, CantH, Desc, Ubi, /*FecIni, FecFin,*/ Url, Vig, Foto]);
+        Evento.update(10, 
+            [EvNom, CantP, CantH, Desc, Ubi, FecIni, FecFin, Url, Vig, Foto]);
     }
   
     return <div className="row container mt-5">
@@ -79,47 +77,47 @@ const ModificarEvento = (props) => {
 {/*EvNom, CantP, CantH, Desc, Ubi, FecIni, FecFin, Url, Vig, Foto*/}
                 <div className="input-group-sm mb-2">
                   <label for="" className="form-label">Nombre del Evento</label>
-                  <input type="text" defaultValue={eventoM.EvNom} className="form-control" onChange={EvNomOnChange}/>
+                  <input type="text" defaultValue={EvNom} className="form-control" onChange={EvNomOnChange}/>
                 </div>
 
                 <div className="input-group-sm mb-2">
                   <label for="" className="form-label">Aforo del evento</label>
-                  <input type="text" defaultValue={eventoM.CantP} className="form-control" onChange={CantPOnChange}/>
+                  <input type="text" defaultValue={CantP} className="form-control" onChange={CantPOnChange}/>
                 </div>
 
                 <div className="input-group-sm mb-2">
                   <label for="" className="form-label">Duración del evento</label>
-                  <input type="text" defaultValue={eventoM.CantH} className="form-control" onChange={CantHOnChange}/>
+                  <input type="text" defaultValue={CantH} className="form-control" onChange={CantHOnChange}/>
                 </div>
 
                 <div className="input-group-sm mb-2">
                   <label for="" className="form-label">Información adicional del evento</label>
-                  <input type="text" defaultValue={eventoM.Desc} className="form-control" onChange={DescOnChange}/>
+                  <input type="text" defaultValue={Desc} className="form-control" onChange={DescOnChange}/>
                 </div>
 
                 <div className="input-group-sm mb-2">
                   <label for="" className="form-label">Fecha de inicio del evento</label>
-                  <input type="text" defaultValue={eventoM.FecIni} className="form-control" onChange={FecIniOnChange}/>
+                  <input type="text" defaultValue={FecIni} className="form-control" onChange={FecIniOnChange}/>
                 </div>
 
                 <div className="input-group-sm mb-2">
                   <label for="" className="form-label">Fecha de fin del evento</label>
-                  <input type="text" defaultValue={eventoM.FecFin} className="form-control" onChange={FecFinOnChange}/>
+                  <input type="text" defaultValue={FecFin} className="form-control" onChange={FecFinOnChange}/>
                 </div>
 
                 <div className="input-group-sm mb-2">
                   <label for="" className="form-label">URL del evento</label>
-                  <input type="text" defaultValue={eventoM.Url} className="form-control" onChange={UrlOnChange}/>
+                  <input type="text" defaultValue={Url} className="form-control" onChange={UrlOnChange}/>
                 </div>
 
                 <div className="input-group-sm mb-2">
                   <label for="" className="form-label">Vigencia del evento</label>
-                  <input type="text" defaultValue={eventoM.Vig} className="form-control" onChange={VigOnChange}/>
+                  <input type="text" defaultValue={Vig} className="form-control" onChange={VigOnChange}/>
                 </div>
 
                 <div className="input-group-sm mb-2">
                   <label for="" className="form-label">Foto del evento</label>
-                  <input type="text" defaultValue={eventoM.Foto} className="form-control" onChange={FotoOnChange}/>
+                  <input type="text" defaultValue={Foto} className="form-control" onChange={FotoOnChange}/>
                 </div>
 
                 <div className="row mt-2 mb-2">
