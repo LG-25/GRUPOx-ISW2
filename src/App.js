@@ -41,7 +41,7 @@ function App() {
           <Route path = "/LoginUsuario" component={LoginUsuario}></Route>
           <Route path = "/InicioEntidad" component={InicioEntidad}></Route>
           <Route path=  "/InicioUsuario" component={InicioUsuario}></Route>
-          <Route path = "/DetalleEventoEntidad" component={Entidad_EventoDetalles}></Route>
+          <Route path = "/DetalleEventoEntidad/:nro" component={Entidad_EventoDetalles}></Route>
           <Route path = "/misEventos" component={MisEventosUsuario}></Route>
           <Route path = "/misEventosUsuarioI" component={MisEventosUsuarioI}></Route>
           <Route path = "/DetallesE" component={DetallesE}></Route>
