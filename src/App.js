@@ -32,12 +32,12 @@ function App() {
           <Route path = "/editarUsuario" component={EditarUsuario}></Route>
           <Route path = "/RegistroEvento" component={RegistroEvento}></Route>
           <Route path = "/SignUpUsuario" component={SignUpUsuario}/>
-          <Route path="/SignupEntidad" component={SignupEntidad}></Route>
+          <Route path=  "/SignupEntidad" component={SignupEntidad}></Route>
           <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
           <Route path = "/LoginUsuario" component={LoginUsuario}></Route>
           <Route path = "/InicioEntidad" component={InicioEntidad}></Route>
-          <Route path="/InicioUsuario" component={InicioUsuario}></Route>
+          <Route path=  "/InicioUsuario" component={InicioUsuario}></Route>
           <Route path = "/DetalleEventoEntidad" component={Entidad_EventoDetalles}></Route>
           <Route path = "/misEventos" component={MisEventosUsuario}></Route>
         </Switch>
