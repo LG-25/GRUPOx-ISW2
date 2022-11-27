@@ -1,88 +1,103 @@
-import { logDOM } from '@testing-library/react'
-import React from 'react'
-import { Link } from 'react-router-dom'
-import "../css/Sidebar.css"
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+//import ListItemIcon from '@mui/material/ListItemIcon';
+//import ListItemText from '@mui/material/ListItemText';
 
 
-export const Sidebar = () =>{
-    return(
-        <div className="wrapper d-flex">
-            <div className="sidebar">
-                <small className="text-muted px-3">Gestion Eventos</small>
-                <ul>
-                    <li><a href="../catalogoEventos"><i className="far fa-credit-card"></i>Catalogo Eventos</a></li>
-                    <li><a href="../misEventosUsuarioI"><i className="far fa-credit-card"></i>Eventos Inscritos</a></li>
-                </ul>
-                <small className="text-muted px-3">Usuario</small>
-                <ul>
-                    <li><a href="../EditarUsuarioI"><i className="fas fa-external-link-alt"></i>Modificar</a></li>
-                    <li>
-                        <a href="#" onClick={() => {
-                            sessionStorage.removeItem("user");
-                            window.location.href = '/';
-                        }}><i className="fas fa-code"></i>Cerrar sesión</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    )
+export function Sidebar() {
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const ruta = (texto) => {
+    if (texto === 'Catalogo Eventos') {
+      return "../catalogoEventos"
+    }
+    else if (texto === 'Eventos Inscritos') {
+      return "../misEventosUsuarioI"
+    }
+    else if (texto === 'Modificar datos') {
+      return "editarUsuarioI"
+    }
+    else if (texto === 'Cerrar sesión') {
+      return '#'
+    }
+  }
+
+  const list = (anchor) => (
+    <Box
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        <small className="text-muted px-3">Gestion Eventos</small>
+        {['Catalogo Eventos', 'Eventos Inscritos'].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+            <a href={ruta(text)} onClick={() => {
+                            if (text === 'Cerrar sesión') {
+                              sessionStorage.removeItem("user");
+                              window.location.href = '/';
+                            }}}>{text}</a>
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+      <small className="text-muted px-3">Usuario</small>
+        {['Modificar datos', 'Cerrar sesión'].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+            <a href={ruta(text)} onClick={() => {
+                            if (text === 'Cerrar sesión') {
+                              sessionStorage.removeItem("user");
+                              window.location.href = '/';
+                            }}}>{text}</a>
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+  return (
+    <div>
+      {['left'].map((anchor) => (
+        <React.Fragment key={anchor}>
+          <Button onClick={toggleDrawer(anchor, true)}><button type="button" className="btn btn-outline-dark m-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+</svg>
+              </button></Button>
+          <Drawer
+            anchor={anchor}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+          >
+            {list(anchor)}
+          </Drawer>
+        </React.Fragment>
+      ))}
+    </div>
+  );
 }
-
-
-// export const Sidebar = () => {
-//   return (
-//     <div classNameName="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
-//         <a href="/" classNameName="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-//             <svg classNameName="bi me-2" width="40" height="32"></svg>
-//             <span classNameName="fs-4">Sidebar</span>
-//         </a>
-//         <hr/>
-//         <ul classNameName="nav nav-pills flex-column mb-auto">
-//             <li classNameName="nav-item">
-//                 <a href="#" classNameName="nav-link active" aria-current="page">
-//                     <svg classNameName="bi me-2" width="16" height="16"></svg>
-//                     Home
-//                 </a>
-//             </li>
-//             <li>
-//                 <a href="#" classNameName="nav-link text-white">
-//                     <svg classNameName="bi me-2" width="16" height="16"></svg>
-//                     Dashboard
-//                 </a>
-//             </li>
-//             <li>
-//                 <a href="#" classNameName="nav-link text-white">
-//                     <svg classNameName="bi me-2" width="16" height="16"></svg>
-//                     Orders
-//                 </a>
-//             </li>
-//             <li>
-//                 <a href="#" classNameName="nav-link text-white">
-//                     <svg classNameName="bi me-2" width="16" height="16"></svg>
-//                     Products
-//                 </a>
-//             </li>
-//             <li>
-//                 <a href="#" classNameName="nav-link text-white">
-//                     <svg classNameName="bi me-2" width="16" height="16"></svg>
-//                     Customers
-//                 </a>
-//             </li>
-//         </ul>
-//         <hr/>
-//         <div classNameName="dropdown">
-//             <a href="#" classNameName="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-//                 <img src="https://github.com/mdo.png" alt="" width="32" height="32" classNameName="rounded-circle me-2"/>
-//                 <strong>mdo</strong>
-//             </a>
-//             <ul classNameName="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-//                 <li><a classNameName="dropdown-item" href="#">New project...</a></li>
-//                 <li><a classNameName="dropdown-item" href="#">Settings</a></li>
-//                 <li><a classNameName="dropdown-item" href="#">Profile</a></li>
-//                 <li><hr classNameName="dropdown-divider"/></li>
-//                 <li><a classNameName="dropdown-item" href="#">Sign out</a></li>
-//             </ul>
-//         </div>
-//   </div>
-//   )
-// }

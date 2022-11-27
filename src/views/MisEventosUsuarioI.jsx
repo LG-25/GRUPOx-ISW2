@@ -11,7 +11,7 @@ export default function CatalogoEventos() {
     const [eventos, setEventos] = useState([])
     let co_usr = sessionStorage.getItem("user");
     // Solamente se realizará una vez el useState
-    console.log(co_usr);
+    //console.log(co_usr);
     useEffect(() => {
         if(co_usr !== null){
             Evento.ObtenerEventosUsuarioI(co_usr)
