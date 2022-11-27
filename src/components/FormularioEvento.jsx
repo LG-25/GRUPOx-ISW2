@@ -69,9 +69,6 @@ const FormularioEvento=()=>{
     };
     return(
         <div className ="row">
-            <div className="col-3">
-                <Sidebar></Sidebar> 
-            </div>
             <div className="col-md-9">   
                 <div className="container-fluid p-5 ">
                     

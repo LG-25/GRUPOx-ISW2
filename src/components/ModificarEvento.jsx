@@ -1,160 +1,145 @@
-import React, { useState, useEffect } from "react"
-import { Evento } from '../services/ServiciosEvento'
-import ModalEditar from "./ModalEditar";
+import { useEffect, useState } from 'react';
+import { Evento } from '../services/ServiciosEvento.js'
+import ModalEditar from './ModalEditar';
+import React from 'react'
+
 
 
 const ModificarEvento = (props) => {
     
-    const [data , setdata] = useState({});
     
-    
-    //Para obtener la data nueva a actualizar
-    const[edita, setEdita] = useState("");
-
-    //Para obtener los datos de un evento a modificar
-    useEffect(() => {
-        Evento.ObtenerEvento(props.no_evnt)
-            .then(result => {
-                setdata(result);
-            })
-    }, [])
-
-    const onInputChange = e =>{
-        setEdita({
-            ...edita, [e.target.name]: e.target.value
-        })
+    const eventoM = props.events;
+    const [EvNom, setEvNom] = useState(eventoM.no_evnt);
+    const [CantP, setCantP] = useState(eventoM.qt_pers);
+    const [CantH, setCantH] = useState(eventoM.qt_hrs);
+    const [Desc, setDesc] = useState(eventoM.desc_event);
+    const [Ubi, setUbi] = useState(eventoM.ubic);
+    const [FecIni, setFecIni] = useState(eventoM.fh_inicio);
+    const[FecFin, setFecFin] = useState(eventoM.fh_fin);
+    const[Url, setUrl] = useState(eventoM.url_evnt);
+    //cambiar en el formulario vigencia por texto y no booleano
+    const[Vig, setVig] = useState(eventoM.fg_vig);
+    const[Foto, setFoto] = useState(eventoM.url_foto);
+    const [openModal, setOpenModal]= useState(false);
+        
+    const EvNomOnChange = (e) => {
+        setEvNom(e.target.value);
+      };
+    const CantPOnChange = (e) =>{
+        setCantP(e.target.value);
     }
-    
-    Evento.update = async e => {
-        e.preventDefault();
-        await fetch("https://genium-backend.herokuapp.com/eventos",{
-            method: "PUT",
-            headers:{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(
-                {   
-
-                    nu_event     : edita["nu_evnt"], 
-                    qt_pers     : edita["qt_pers"],  
-                    qt_hrs      : edita["qt_hrs"],   
-                    desc_event  : edita["desc_event"],
-                    ubic        : edita["ubic"],     
-                    fh_inicio   : edita["fh_inicio"],
-                    fh_fin      : edita["fh_fin"],   
-                    url_evnt    : edita["url_evnt"], 
-                    fg_vig      : edita["fg_vig"],
-                    url_foto    : edita["url_foto"]
-                }
-            )
-        })
+    const CantHOnChange = (e) =>{
+        setCantH(e.target.value);
     }
-   
-/*Realizamos llamadas de prueba para verificar que se llamen los datos del evento*/
-    console.log(props);
-    console.log(data);
-    console.log(data.fh_inicio);
-
-    const diaIni = new Date(data.fh_inicio)
-    const diaFin = new Date(data.fh_fin)
-
-    
-
-    
-    return (
-       <div>
-            <div className ="row">
-            <div className="col-md-9">   
-                <div className="container-fluid p-5 ">
-                    
-                    <h1>Modifica los datos del evento</h1>
-                    <div className="row">
-                        <h3 class="mt-4"><em>Datos del evento</em></h3>
-                        {/*Para cada dato existe:
-                            placeholder: muestra la data actual del evento llamado
-                            value: guarda la nueva data ingresada
-                            onChange: captura los cambios realizados en los campos de los datos
-                        */}
-                        
-                       <label class="form-label mt-1">Nombre del Evento</label>
-                        <div className="mt-2">
-                            <input type="text" className="form-control my-2" placeholder={data.nu_evnt} name="nu_evnt" value={edita.nu_event}  onChange={e => onInputChange(e)}>{data.nu_evnt}</input>
-                        </div>
-                        
-                        <label class="form-label mt-1">Cantidad de personas</label>
-                        <div className="mt-1">
-                            <input type="text" className="form-control my-2" placeholder={data.qt_pers} name="qt_pers" value={edita.qt_pers}  onChange={e => onInputChange(e)}></input>
-                        </div>
-
-                        <label class="form-label mt-1">Duración del evento</label>
-                        <div className="mt-1">
-                            <input type="text" className="form-control my-2" placeholder={data.qt_hrs} name="qt_hrs" value={edita.qt_hrs} onChange={e => onInputChange(e)}></input>
-                        </div>
-
-                        <label class="form-label my-1">Descripción del evento</label>
-                        <div className="mt-1">
-                            <textarea className="form-control my-2" placeholder={data.desc_event} rows="8" col="53" name="desc_evnt" value={edita.desc_event} onChange={e => onInputChange(e)}></textarea>
-                        </div>   
-
-                        <div className="mt-1">
-                            <label class="form-label mt-1">Ubicacion del evento</label>
-                            <div className="col">
-                                <input type="text" className="form-control my-2" placeholder={data.ubic} name="ubic" value={edita.ubic} onChange={e => onInputChange(e)}>{data.ubic}</input>
-                            </div>
-
-                            
-                            <label class="form-label mt-1">Fecha de Inicio</label>
-                            <div className="col mt-2"></div>
-                                <input type="date" name="fh_inicio" className="form-control my-2" placeholder={diaIni.toLocaleDateString()} value={edita.fh_inicio} onChange={e => onInputChange(e)}/>
-                        </div>
-
-                        <label class="form-label mt-1">Fecha de Fin</label>
-                        <div className="col mt-2"> 
-                            <input type="date" name="fh_fin" className="form-control my-2" value={diaFin.toLocaleDateString()} onChange={e => onInputChange(e)}/>
-                        </div>
-
-                        <label class="form-label mt-1">URL del evento</label>
-                        <div>                            
-                            <input type="text" name="url_evnt" className="form-control my-2" placeholder={data.url_evnt} value={edita.url_evnt} onChange={e => onInputChange(e)}/>
-                        </div>
-
-                        <label class="form-label mt-1">URL de las fotos</label>
-                        <div>    
-                            <input type="text" name="URL_FOTO" className="form-control my-2" placeholder={data.url_foto} value={edita.url_foto} onChange={e => onInputChange(e)}/>
-                        </div>
-                        
-                        <h5 className="mt-2">Vigencia del Evento</h5>
-                
-                        <div class="form-check mt-2 mx-4">
-                            <input class="form-check-input" type="radio" name="fg_vig" value={edita.fg_vig} onChange={e => onInputChange(e)}/>
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Evento vigente
-                            </label>
-                        </div>
-                        
-                        <div class="form-check mx-4">
-                            <input class="form-check-input" type="radio" name="fg_vig" value={edita.fg_vig} onChange={e => onInputChange(e)} />
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Evento cancelado
-                            </label>
-                        </div>
-
-                        {/*Boton de modal de modificacion exitosa : ModalEditar
-                          Onclick deberia de permitir funcion de update de la carpeta services: ServiciosEvento*/}
-                        <div className="text-center my-2">
-                            <ModalEditar onClick={Evento.update(edita)}></ModalEditar>
-                        </div>
-                        
-                    </div>
-
+    const DescOnChange = (e) =>{
+        setDesc(e.target.value);
+    }
+    const UbiOnChange = (e) =>{
+        setUbi(e.target.value);
+    }
+    const FecIniOnChange = (e) =>{
+        setFecIni(e.target.value);
+    }
+    const FecFinOnChange = (e) =>{
+        setFecFin(e.target.value);
+    }
+    const UrlOnChange = (e) =>{
+        setUrl(e.target.value);
+    }
+    const VigOnChange = (e) =>{
+        setVig(e.target.value);
+    }
+    const FotoOnChange = (e) =>{
+        setFoto(e.target.value);
+    }
+    const btnOnclick= ()=>{
+        setOpenModal(true);
+    }
+    const btnConfirmarOnClick=()=>{
+        Evento.update(10, 
+            [EvNom, CantP, CantH, Desc, Ubi, FecIni, FecFin, Url, Vig, Foto]);
+    }
+  
+    return <div className="row container mt-5">
+      <div className="row justify-content-center">
+        <div className="col" />
+        <div className="col-md-5 table-responsive">
+          <aside>
+            <div className="card bg-secondary text-black">
+              <div className="card-body">
+                <div className="row">
+                  <div className="col"> </div>
+                  <div className="col-8">
+                    <h3 className="text-center">Editar el detalle del evento</h3>
+                  </div>
+                  <div className="col"> </div>
                 </div>
+{/*EvNom, CantP, CantH, Desc, Ubi, FecIni, FecFin, Url, Vig, Foto*/}
+                <div className="input-group-sm mb-2">
+                  <label for="" className="form-label">Nombre del Evento</label>
+                  <input type="text" defaultValue={EvNom} className="form-control" onChange={EvNomOnChange}/>
+                </div>
+
+                <div className="input-group-sm mb-2">
+                  <label for="" className="form-label">Aforo del evento</label>
+                  <input type="text" defaultValue={CantP} className="form-control" onChange={CantPOnChange}/>
+                </div>
+
+                <div className="input-group-sm mb-2">
+                  <label for="" className="form-label">Duración del evento</label>
+                  <input type="text" defaultValue={CantH} className="form-control" onChange={CantHOnChange}/>
+                </div>
+
+                <div className="input-group-sm mb-2">
+                  <label for="" className="form-label">Información adicional del evento</label>
+                  <input type="text" defaultValue={Desc} className="form-control" onChange={DescOnChange}/>
+                </div>
+
+                <div className="input-group-sm mb-2">
+                  <label for="" className="form-label">Fecha de inicio del evento</label>
+                  <input type="text" defaultValue={FecIni} className="form-control" onChange={FecIniOnChange}/>
+                </div>
+
+                <div className="input-group-sm mb-2">
+                  <label for="" className="form-label">Fecha de fin del evento</label>
+                  <input type="text" defaultValue={FecFin} className="form-control" onChange={FecFinOnChange}/>
+                </div>
+
+                <div className="input-group-sm mb-2">
+                  <label for="" className="form-label">URL del evento</label>
+                  <input type="text" defaultValue={Url} className="form-control" onChange={UrlOnChange}/>
+                </div>
+
+                <div className="input-group-sm mb-2">
+                  <label for="" className="form-label">Vigencia del evento</label>
+                  <input type="text" defaultValue={Vig} className="form-control" onChange={VigOnChange}/>
+                </div>
+
+                <div className="input-group-sm mb-2">
+                  <label for="" className="form-label">Foto del evento</label>
+                  <input type="text" defaultValue={Foto} className="form-control" onChange={FotoOnChange}/>
+                </div>
+
+                <div className="row mt-2 mb-2">
+                  <div className="col">
+                    <button className="btn btn-primary" onClick={btnOnclick}>Guardar</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            </div> 
+          </aside>
         </div>
-    )
+        <div className="col" />
+      </div>
+      {openModal && 
+        <ModalEditar 
+            closeModal={setOpenModal} 
+            confirmar={btnConfirmarOnClick}>
+        </ModalEditar>
+        }
+    </div>
 }
 
 
 
-export default ModificarEvento
+export default ModificarEvento;

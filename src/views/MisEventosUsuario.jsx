@@ -2,28 +2,30 @@ import React, { useEffect, useState } from 'react'
 import { Evento } from '../services/ServiciosEvento.js'
 import { CartaEvento } from '../components/Entidad_CartaEvento.jsx';
 import { Sidebar } from '../components/Entidad_Sidebar.jsx';
+import { Redirect } from 'react-router-dom';
 
 
 //Para usuario ENTIDAD
 export default function EventosEntidad() {
 
     const [eventos, setEventos] = useState([])
-    
+    let data = sessionStorage.getItem("userEN");
     // Solamente se realizará una vez el useState
     useEffect(() => {
-        let data = sessionStorage.getItem("userEN");
-        if (data === null) {
-            data = 1;
-        }
+        // if(data === null){
+        //     console.log(data);
+        //     return <Redirect to='/InicioEntidad'></Redirect>
+        // }
         //Evento.ObtenerEventosEntidad(1)
-        Evento.ObtenerEventosEntidad(data)
-            .then(result => {
-                setEventos(result)
-            })
+        if(data !== null){
+            Evento.ObtenerEventosEntidad(data)
+                .then(result => {
+                    setEventos(result)
+                })
+        }
     }, [])
 
     const ArmarBody = () => {
-        console.log(eventos)
         if (eventos.length>0) {
             return(eventos.map(event => <CartaEvento key={event.NU_EVNT} evento={event}/>))
         }
@@ -43,7 +45,7 @@ export default function EventosEntidad() {
                 <div className="col">
                     <div className="d-flex flex-column flex-shrink-0 container mt-3 justify-content-center">
                         <div className="row row-cols-md-4 justify-content-center">
-                            {ArmarBody()}
+                            {data===null ? <Redirect to='/'></Redirect> : ArmarBody()}
                         </div>
                     </div>
                 </div>

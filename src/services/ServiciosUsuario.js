@@ -41,7 +41,7 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
             throw new Error('No se pudo obtener el usuario invitado')
         }else{
             const usuarioJson = await response.json();
-            const usuarioI=
+            return (
                 new UsuarioInvitado(
                     co_usr_inv,
                     usuarioJson.NOM_USR,
@@ -53,7 +53,7 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
                     usuarioJson.FH_NACIMIENTO,
                     usuarioJson.FH_CREACION
                 )
-            return usuarioI
+            )
         }
     }
 
