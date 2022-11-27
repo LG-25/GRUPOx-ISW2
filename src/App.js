@@ -31,13 +31,11 @@ function App() {
         <Switch>
           <Route exact path="/" component={Principal}></Route>
           <Route path = "/catalogoEventos" component={CatalogoEventos}></Route>
-          <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
           <Route path = "/editarUsuarioI" component={EditarUsuarioI}></Route>
           <Route path = "/RegistroEvento" component={RegistroEvento}></Route>
           <Route path = "/SignUpUsuario" component={SignUpUsuario}/>
           <Route path=  "/SignupEntidad" component={SignupEntidad}></Route>
-          <Route path = "/catalogoEventos"></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
           <Route path = "/LoginUsuario" component={LoginUsuario}></Route>
           <Route path = "/InicioEntidad" component={InicioEntidad}></Route>

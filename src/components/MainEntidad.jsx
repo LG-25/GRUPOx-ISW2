@@ -34,13 +34,6 @@ const MainEntidad = () => {
                       </Link>
                     </div>
                   </div>
-                  <div className="row">
-                    <div class="button">
-                      <Link to ="/EditarEvento">
-                          <a class="btn primary-btn w-100">Editar Evento</a>
-                      </Link>
-                    </div>
-                  </div>
                   <div className="row ">
                     <div class="button ">
                       <Link to ="/editarUsuario">

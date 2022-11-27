@@ -11,7 +11,7 @@ const ModalQr = (props) => {
         }
     const url = `https://genium-backend.herokuapp.com/confirmarQr?nu_evnt=${props.nu_evnt}&nu_usr=${nu_usr}`;
     useEffect(() => {
-        QRCode.tonu_usrURL(url).then((nu_usr) => {
+        QRCode.toDataURL(url).then((nu_usr) => {
             setSrc(nu_usr);
         });
     }, []);
