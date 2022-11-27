@@ -1,7 +1,5 @@
-import { UsuarioInvitado } from "../classes/UsuarioInvitado";
+import {UsuarioInvitado} from "../classes/UsuarioInvitado"
 export class ServiciosUsuario{//Cambiar a clase llamada USUARIO
-    constructor(){}
-    
     static async validarUsuarioEN(correoUSREN,contraEN){
         //usuario entidad
         const response = await fetch(`https://genium-backend.herokuapp.com/login?correo=${correoUSREN}&contra=${contraEN}`); 
@@ -38,13 +36,14 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
         }
     }
     static async ObtenerUsuarioI(co_usr_inv){
-        const response = await fetch(`https://genium-backend.herokuapp.com/UsuariosI/${co_usr_inv}`)
+        const response = await fetch(`https://genium-backend.herokuapp.com/usuarioI/${co_usr_inv}`)
         if(!response.ok){
             throw new Error('No se pudo obtener el usuario invitado')
         }else{
             const usuarioJson = await response.json();
             const usuarioI=
                 new UsuarioInvitado(
+                    co_usr_inv,
                     usuarioJson.NOM_USR,
                     usuarioJson.CORREO,
                     usuarioJson.CONTRA,
@@ -59,7 +58,7 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
     }
 
     static async actualizarUsuarioI(co_usr_inv, datos){
-        await fetch(`https://genium-backend.herokuapp.com/UsuariosI/${co_usr_inv}`,{
+        await fetch(`https://genium-backend.herokuapp.com/usuarioI/${co_usr_inv}`,{
             method: "PUT",
             headers: {
                 'Accept': 'application/json',
@@ -77,24 +76,27 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
         })
     }
     /* METODO QUE ESTABA EN USUARIO INVITADO*/
-    static async updateUsuarioI(){
+    static async updateUsuarioI(co_usr_inv, nombre, apellido, apellido2, correo, contra, nom, fn, fc){
+        console.log("nombrexxx: "+ nombre)
         const requestOptions = {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({   
-                NOM_USR: this.nom_usr,
-                CORREO: this.correo,
-                CONTRA: this.contra,
-                NOM: this.nom,
-                AP_PAT: this.ap_pat,
-                AP_MAT: this.ap_mat,
-                FH_NACIMIENTO: this.fh_nacimiento,
-                FH_CREACION: this.fh_creacion
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+
+                CO_USR_INVT: co_usr_inv,
+                NOM_USR: nombre,
+                CORREO: correo,
+                CONTRA: contra,
+                AP_PAT: apellido,
+                AP_MAT: apellido2,
+                NOM: nom,
+                FH_NACIMIENTO: fn,
+                FH_CREACION: fc
             })
         };
-        const response = await fetch(`https://genium-backend.herokuapp.com//usuariosI/${this.nu_evnt}`, requestOptions)
+        const response = await fetch(`https://genium-backend.herokuapp.com/usuarioI/${co_usr_inv}`, requestOptions)
         if(!response.ok){
-            throw new Error('No se pudo actualizar el evento')
+            throw new Error('No se pudo actualizar el usuario')
         }else{
             return response.json()
         }

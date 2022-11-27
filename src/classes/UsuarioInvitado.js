@@ -11,3 +11,4 @@ class UsuarioInvitado{
         this.fh_creacion= fh_creacion
     }
 }
+export {UsuarioInvitado}

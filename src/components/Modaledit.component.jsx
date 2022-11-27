@@ -6,14 +6,28 @@ import ModalMensaje from './ModalMensaje';
 const Modaledit = (props) => {
     const usuario = props.user;
 
-    const gestorUsuarios = new ServiciosUsuarioI()
+    const v1= usuario.nom_usr;
     const [txtNombre, setTxtNombre] = useState('');
     const [txtAp_pat, setTxtApPaterno] = useState('');
-    const [txtAp_ma, setTxtCorreo] = useState(0);
-    const [txtCorreo, setTxtTelefono] = useState(0);
-    const [txtContra, setTxtApMaterno] = useState('');
+    const [txtAp_ma, setTxtAp_ma] = useState('');
+    const [txtCorreo, setTxtCorreo] = useState('');
+    const [txtContra, setTxtContra] = useState('');
+    const [txtNom, setTxtNom] = useState('');
+    const [txtFN, setTxtFN] = useState('');
+    const [txtFC, setTxtFC] = useState('');
     const [openModal, setOpenModal]= useState(false);
-    
+    useEffect(() => {
+      if (usuario.co_usr_inv != null) {
+        setTxtNombre(usuario.nom_usr);
+        setTxtApPaterno(usuario.ap_pat);
+        setTxtAp_ma(usuario.ap_mat);
+        setTxtCorreo(usuario.correo);
+        setTxtContra(usuario.contra);
+        setTxtNom(usuario.nom);
+        setTxtFN(usuario.fh_nacimiento);
+        setTxtFC(usuario.fh_creacion);
+      }
+    }, [usuario.co_usr_inv])
   
     const txtNombreOnChange = (event) => {
       setTxtNombre(event.target.value);
@@ -22,19 +36,28 @@ const Modaledit = (props) => {
       setTxtApPaterno(event.target.value);
     };
     const txtAp_maOnChange = (event) => {
-      setTxtCorreo(event.target.value);
+      setTxtAp_ma(event.target.value);
     };
     const txtCorreoOnChange = (event) => {
-      setTxtTelefono(event.target.value);
+      setTxtCorreo(event.target.value);
     };
     const txtContraOnChange = (event) => {
-        setTxtApMaterno(event.target.value);
+      setTxtContra(event.target.value);
       };
     const btnGuardarOnclick= ()=>{
+      
+
+      console.log("nombre: "+ txtNombre);
+      console.log("nombre: "+ txtAp_pat);
+      console.log("nombre: "+ txtAp_ma);
+      console.log("nombre: "+ txtCorreo);
+      console.log("nombre: "+ txtContra);
+
+      btnConfirmarOnClick()
       setOpenModal(true);
     }
     const btnConfirmarOnClick=()=>{
-      gestorUsuarios.actualizarUsuarioI(10, [txtNombre, txtAp_pat, txtAp_ma, txtCorreo, txtContra]);
+      ServiciosUsuarioI.updateUsuarioI(usuario.co_usr_inv, txtNombre, txtAp_pat, txtAp_ma, txtCorreo, txtContra, txtNom, txtFN, txtFC);
     }
 
   return <div className="row container mt-5">
