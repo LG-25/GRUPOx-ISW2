@@ -57,8 +57,18 @@ const Modaledit = (props) => {
       setOpenModal(true);
     }
     const btnConfirmarOnClick=()=>{
+        const usr={
+                NOM_USR: objeto.nom_usr,
+                CORREO: objeto.correo,
+                CONTRA: objeto.contra,
+                NOM: objeto.nom,
+                AP_PAT: objeto.ap_pat,
+                AP_MAT: objeto.ap_mat,
+                FH_NACIMIENTO: objeto.fh_nacimiento,
+                FH_CREACION: objeto.fh_creacion
+      };
       //dirigir a principal
-      ServiciosUsuarioI.updateUsuarioI(usuario.co_usr_inv, txtNombre, txtAp_pat, txtAp_ma, txtCorreo, txtContra, txtNom, txtFN, txtFC).then( () => {
+      ServiciosUsuarioI.updateUsuarioI(usr).then( () => {
         window.location.href = '/InicioUsuario';
       })
     }
