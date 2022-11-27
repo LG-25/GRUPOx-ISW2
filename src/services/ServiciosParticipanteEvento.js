@@ -46,6 +46,15 @@ export class ParticipantesEvento{
             return response.json()
         }
     } 
+    static async EliminarParticipanteEvento(nu_evnt, co_usr_inv){
+        console.log("Numero de evento: "+nu_evnt+" Usuario: "+co_usr_inv)
+        /*const response = await fetch(``, {
+            method: 'DELETE'
+        })
+        if (!response.ok) {
+            throw new Error('No se pudo eliminar este evento de la lista de "Mis eventos"');
+        }*/
+    } 
 
 
 

@@ -17,7 +17,7 @@ export const Sidebar = () =>{
                 <ul>
                     <li><a href="#"><i className="fas fa-external-link-alt"></i>Modificar</a></li>
                     <li><Link to="/">
-                        <a href="#"><i className="fas fa-code"></i>Cerrar sesión</a>
+                        <div href="#"><i className="fas fa-code"></i>Cerrar sesión</div>
                     </Link>
                     </li>
                 </ul>

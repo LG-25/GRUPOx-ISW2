@@ -76,20 +76,20 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
             )
         })
     }
-    /* METODO QUE ESTABA EN USUARIO INVITADO*/
-    static async updateUsuarioI(){
+    /* METODO QUE ESTABA EN USUARIO INVITADO CORREGIDO*/
+    static async updateUsuarioI(objeto){
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({   
-                NOM_USR: this.nom_usr,
-                CORREO: this.correo,
-                CONTRA: this.contra,
-                NOM: this.nom,
-                AP_PAT: this.ap_pat,
-                AP_MAT: this.ap_mat,
-                FH_NACIMIENTO: this.fh_nacimiento,
-                FH_CREACION: this.fh_creacion
+                NOM_USR: objeto.nom_usr,
+                CORREO: objeto.correo,
+                CONTRA: objeto.contra,
+                NOM: objeto.nom,
+                AP_PAT: objeto.ap_pat,
+                AP_MAT: objeto.ap_mat,
+                FH_NACIMIENTO: objeto.fh_nacimiento,
+                FH_CREACION: objeto.fh_creacion
             })
         };
         const response = await fetch(`https://genium-backend.herokuapp.com//usuariosI/${this.nu_evnt}`, requestOptions)

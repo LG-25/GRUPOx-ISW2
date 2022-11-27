@@ -8,7 +8,7 @@ import { Sidebar } from '../components/Sidebar.jsx';
 export default function CatalogoEventos() {
 
     const [eventos, setEventos] = useState([])
-    let data = sessionStorage.getItem("userEN");
+    let data = sessionStorage.getItem("user");
         if (data === null) {
             data = 1;
         }
@@ -20,7 +20,7 @@ export default function CatalogoEventos() {
             })
     }, [])
 
-    console.log(eventos);
+    //console.log(eventos);
     return (
         <>
             <div className="row">
@@ -30,7 +30,7 @@ export default function CatalogoEventos() {
                 <div className="col">
                     <div className="d-flex flex-column flex-shrink-0 container mt-3 justify-content-center">
                         <div className="row row-cols-md-4 justify-content-center">
-                            {eventos.map(event => <CartaEvento tipo="registrado" key={event.NU_EVNT} evento={event}/>)}
+                            {eventos.map(event => <CartaEvento tipo="registrado" key={event.NU_EVNT} evento={event} usuario={data}/>)}
                         </div>
                     </div>
                 </div>

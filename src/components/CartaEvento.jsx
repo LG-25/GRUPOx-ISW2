@@ -5,6 +5,7 @@ import { Evento } from '../services/ServiciosEvento.js'
 import ModalDetalleEvento from './ModalDetalleEvento.jsx';
 import ModalQr from './ModalQr.jsx';
 import { ReactNode } from 'react';
+import { ParticipantesEvento } from '../services/ServiciosParticipanteEvento.js';
 
 export const CartaEvento = (props) => {
   const evento = props.evento;
@@ -23,6 +24,13 @@ export const CartaEvento = (props) => {
     console.log("entraaaa")
     setDebeMostrarModal(true)
     //setDescription(evento.desc_event)
+  }
+  const butOnClick3 =()=>{
+    let user = sessionStorage.getItem("user");
+        if (user === null) {
+            user = 1;
+        }
+    ParticipantesEvento.EliminarParticipanteEvento(evento.nu_evnt,user)
   }
   const onModalClose = ()=>{
     setDebeMostrarModal(false)
@@ -55,7 +63,8 @@ export const CartaEvento = (props) => {
           <p className="card-text">Max personas: {evento.qt_pers}</p>
           <p className="card-text">Fecha Inicio: {dayI.toLocaleDateString()}</p>
           <p className="card-text">Fecha Fin: {dayF.toLocaleDateString()}</p>
-          <a href="#" className="btn btn-primary" onClick={butOnClick2}>Ver detalles</a>
+          <a href="#" className="btn btn-primary mt-2" onClick={butOnClick2}>Ver detalles</a>
+          <a href="#" className="btn btn-primary mt-2" onClick={butOnClick3}>Eliminar</a>
         </div>
         <ModalQr nu_evnt={evento.nu_evnt} mostrar={debeMostrarModal} ocultar={onModalClose}></ModalQr>
       </div>
