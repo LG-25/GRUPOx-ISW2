@@ -24,11 +24,6 @@ const HeadPrincipal = () => {
                     Somos GENIUM!, una plataforma que ayudará en la visibilidad de eventos con fines sociales y podrá colaborar en la gestión de
                     cualquier evento de las distintas ONGs internacionales.
                   </p>
-                  <div class="button">
-                    <Link to ="/catalogoEventos">
-                        <a class="btn primary-btn">Catalogo de eventos</a>
-                    </Link>
-                  </div>
                 </div>
               </div>
               <div class="col-lg-6 col-md-12 col-12">
