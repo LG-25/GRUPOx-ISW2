@@ -22,7 +22,7 @@ const MainEntidad = () => {
               <div className="col-lg-4 col-md-12 col-12">
                   <div className="row">
                     <div class="button">
-                      <Link to ="/catalogoEventos">
+                      <Link to ="/RegistroEvento">
                           <a class="btn primary-btn w-100">Registrar Evento</a>
                       </Link>
                     </div>

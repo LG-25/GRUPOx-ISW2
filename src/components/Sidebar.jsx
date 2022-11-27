@@ -9,8 +9,7 @@ export const Sidebar = () =>{
             <div className="sidebar">
                 <small className="text-muted px-3">Gestion Eventos</small>
                 <ul>
-                    <li><a href="#"><i class="fas fa-home"></i>Catalogo de eventos</a></li>
-                    <li><a href="#"><i class="far fa-credit-card"></i>Eventos</a></li>
+                    <li><a href="../misEventos"><i class="far fa-credit-card"></i>Eventos</a></li>
                     <li><a href="../RegistroEvento"><i class="far fa-credit-card"></i>Formulario Eventos</a></li>
                     <li><a href="../EditarEvento"><i class="far fa-credit-card"></i>Editar Evento</a></li>
                 </ul>
