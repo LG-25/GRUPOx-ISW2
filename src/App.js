@@ -46,7 +46,7 @@ function App() {
           <Route path = "/misEventos" component={MisEventosUsuario}></Route>
           <Route path = "/misEventosUsuarioI" component={MisEventosUsuarioI}></Route>
           <Route path = "/DetallesE" component={DetallesE}></Route>
-          <Route path = "/EditarEvento" component={EditarEvento}></Route>
+          <Route path = "/EditarEvento/:nu_evnt" component={EditarEvento}></Route>
         </Switch>
       </Router>
     </>

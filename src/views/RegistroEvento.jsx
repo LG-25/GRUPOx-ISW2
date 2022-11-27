@@ -1,6 +1,6 @@
 import FormularioEvento from "../components/FormularioEvento"
 import InvitacionLink from "../components/InvitacionLink"
-import { Sidebar } from "../components/Sidebar"
+import { Sidebar } from "../components/Entidad_Sidebar"
 
 const RegistroEvento=()=>{
     return (
