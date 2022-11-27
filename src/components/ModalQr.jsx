@@ -6,7 +6,7 @@ import QRCode from "qrcode";
 const ModalQr = (props) => {
     const [src, setSrc] = useState('');
     let co_usr = sessionStorage.getItem("userEN");
-    const url = `https://genium-backend.herokuapp.com/pantallaConfirma?nu_evnt=${props.nu_evnt}&co_usr=${co_usr}`;
+    const url = `https://genium-frontend.herokuapp.com/pantallaConfirma?nu_evnt=${props.nu_evnt}&co_usr=${co_usr}`;
     useEffect(() => {
         QRCode.toDataURL(url).then((nu_usr) => {
             setSrc(nu_usr);
