@@ -17,15 +17,15 @@ const ModalQr = (props) => {
     }, []);
 
     return <Modal show={props.mostrar} onHide={props.ocultar}>
-        <div class="card" style={{ maxWidth: "1540px" }}>
-            <div class="row g-0">
-                <div class="col" />
-                <div class="col">
-                    <div class="card-body">
+        <div className="card" style={{ maxWidth: "1540px" }}>
+            <div className="row g-0">
+                <div className="col" />
+                <div className="col">
+                    <div className="card-body">
                         <img src={src} />
                     </div>
                 </div>
-                <div class="col" />
+                <div className="col" />
             </div>
         </div>
     </Modal>

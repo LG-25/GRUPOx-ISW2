@@ -7,9 +7,9 @@ import { Redirect } from 'react-router-dom';
 
 //Para usuario ENTIDAD
 export default function EventosEntidad() {
-
     const [eventos, setEventos] = useState([])
     let data = sessionStorage.getItem("userEN");
+    let cargo = false
     // Solamente se realizará una vez el useState
     useEffect(() => {
         // if(data === null){
@@ -17,19 +17,21 @@ export default function EventosEntidad() {
         //     return <Redirect to='/InicioEntidad'></Redirect>
         // }
         //Evento.ObtenerEventosEntidad(1)
+        cargo = false
         if(data !== null){
             Evento.ObtenerEventosEntidad(data)
                 .then(result => {
                     setEventos(result)
+                    cargo = true
                 })
         }
     }, [])
 
     const ArmarBody = () => {
-        if (eventos.length>0) {
+        if (eventos.length>0 && cargo == false) {
             return(eventos.map(event => <CartaEvento key={event.NU_EVNT} evento={event}/>))
         }
-        else {
+        else{
             return (<h1 >NO HAY EVENTOS DISPONIBLES</h1>)
         }
     }

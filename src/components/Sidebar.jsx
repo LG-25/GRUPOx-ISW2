@@ -10,8 +10,8 @@ export const Sidebar = () =>{
             <div className="sidebar">
                 <small className="text-muted px-3">Gestion Eventos</small>
                 <ul>
-                    <li><a href="../catalogoEventos"><i class="far fa-credit-card"></i>Catalogo Eventos</a></li>
-                    <li><a href="../misEventosUsuarioI"><i class="far fa-credit-card"></i>Eventos Inscritos</a></li>
+                    <li><a href="../catalogoEventos"><i className="far fa-credit-card"></i>Catalogo Eventos</a></li>
+                    <li><a href="../misEventosUsuarioI"><i className="far fa-credit-card"></i>Eventos Inscritos</a></li>
                 </ul>
                 <small className="text-muted px-3">Usuario</small>
                 <ul>

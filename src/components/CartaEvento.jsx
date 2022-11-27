@@ -24,7 +24,7 @@ export const CartaEvento = (props) => {
         window.location.href = "/misEventosUsuarioI"
       },
       (error) =>{
-        alert("ha ocurrido un error con al actualizar el estado")
+        alert("ha ocurrido un error al actualizar el estado")
         console.log(error);
       })
   }
@@ -47,10 +47,15 @@ export const CartaEvento = (props) => {
   }
   const butOnClick3 =()=>{
     let user = sessionStorage.getItem("user");
-        if (user === null) {
-            user = 1;
-        }
     ParticipantesEvento.EliminarParticipanteEvento(evento.nu_evnt,user)
+    .then((result) => {
+      alert("Se ha eliminado el evento de la lista de 'Mis eventos'")
+      window.location.href = "/misEventosUsuarioI"
+    },
+    (error) =>{
+      alert("ha ocurrido un error al eliminar el evento")
+      console.log(error);
+    })
   }
   const onModalClose = ()=>{
     setDebeMostrarModal(false)
@@ -83,10 +88,10 @@ export const CartaEvento = (props) => {
           <p className="card-text">Max personas: {evento.qt_pers}</p>
           <p className="card-text">Fecha Inicio: {dayI.toLocaleDateString()}</p>
           <p className="card-text">Fecha Fin: {dayF.toLocaleDateString()}</p>
-          <a href="#" className="btn btn-primary mt-2" onClick={butOnClick2}>Ver detalles</a>
-          <a href="#" className="btn btn-primary mt-2" onClick={butOnClick3}>Eliminar</a>
-          {evento.co_estd === 1 && <a href="#" className="btn btn-primary" onClick={butonClick1}>Confirmar Asistencia</a>}
-          {evento.co_estd === 2 && <a href="#" className="btn btn-primary" onClick={butOnClick2}>Ver QR</a>}
+          {evento.co_estd === 1 && <><a href="#" className="btn btn-primary" onClick={butonClick1}>Confirmar Asistencia</a>
+          <a href="#" className="btn btn-primary mt-2" onClick={butOnClick3}>Eliminar</a></>}
+          {evento.co_estd === 2 && <><a href="#" className="btn btn-primary" onClick={butOnClick2}>Ver QR</a>
+          <a href="#" className="btn btn-primary mt-2" onClick={butOnClick3}>Eliminar</a></>}
           {evento.co_estd === 3 && <a href="#" className="btn btn-primary" onClick={butonClick3}>Mostrar Certificado</a>}
         </div>
           <ModalQr nu_evnt={evento.nu_evnt} mostrar={debeMostrarModal} ocultar={onModalClose}></ModalQr>

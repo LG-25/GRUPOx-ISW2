@@ -98,21 +98,21 @@ const ModalDetalleEvento = (props) => {
 
 
     return <Modal show = {props.mostrar} onHide={props.ocultar}>
-        <div class="card" style={{ maxWidth: "1540px" }}>
-            <div class="row g-0">
-                <div class="col-md-4">
+        <div className="card" style={{ maxWidth: "1540px" }}>
+            <div className="row g-0">
+                <div className="col-md-4">
                     <img src="..." className="img-fluid rounded-start" alt="..." />
                 </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">{props.nombre}</h5>
-                        <p class="card-text">{props.desc}</p>
-                        <p class="card-text">Cantidad de horas: {props.qHoras}</p>
-                        <p class="card-text">Ubicación: {props.ubic}</p>
-                        <p class="card-text">Cantidad máxima de personas: {props.qPers}</p>
-                        <p class="card-text">URL del evento: {props.url}</p>
-                        <p class="card-text"><small class="text-muted">Fecha inicio: {props.inicio} </small></p>
-                        <p class="card-text"><small class="text-muted">Fecha fin: {props.fin} </small></p>
+                <div className="col-md-8">
+                    <div className="card-body">
+                        <h5 className="card-title">{props.nombre}</h5>
+                        <p className="card-text">{props.desc}</p>
+                        <p className="card-text">Cantidad de horas: {props.qHoras}</p>
+                        <p className="card-text">Ubicación: {props.ubic}</p>
+                        <p className="card-text">Cantidad máxima de personas: {props.qPers}</p>
+                        <p className="card-text">URL del evento: {props.url}</p>
+                        <p className="card-text"><small className="text-muted">Fecha inicio: {props.inicio} </small></p>
+                        <p className="card-text"><small className="text-muted">Fecha fin: {props.fin} </small></p>
                         <div className = {""}>
                             <button className="btn btn-primary w-100 text-dark" onClick={OpenModal} >Registrarse</button>
                             <Modal
