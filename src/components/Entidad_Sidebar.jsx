@@ -15,11 +15,13 @@ export const Sidebar = () =>{
                 <small className="text-muted px-3">Usuario</small>
                 <ul>
                     <li><a href="../editarUsuario"><i className="fas fa-external-link-alt"></i>Editar Informacion</a></li>
-                    <li>
-                        <Link to="/">
-                            <i className="fas fa-code"></i>Cerrar sesión
-                        </Link>
-                    </li>
+                    
+                    <li><a href='#' onClick={
+                        () =>{
+                            sessionStorage.removeItem("userEN");
+                            window.location.href = '/';
+                        }
+                    }><i className="fas fa-external-link-alt"></i>Cerrar sesión</a></li>
                 </ul>
             </div>
         </div>
