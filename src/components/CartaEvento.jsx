@@ -5,22 +5,43 @@ import { Evento } from '../services/ServiciosEvento.js'
 import ModalDetalleEvento from './ModalDetalleEvento.jsx';
 import ModalQr from './ModalQr.jsx';
 import { ReactNode } from 'react';
+import { ParticipantesEvento } from '../services/ServiciosParticipanteEvento.js';
+import jsPDF from 'jspdf';
 
 export const CartaEvento = (props) => {
+  const co_usr = sessionStorage.getItem("user");
   const evento = props.evento;
   const dayI = new Date(evento.fh_inicio)
-  const dayF = new Date(evento.fh_fin)
-
+  const dayF = new Date(evento.fh_fin)  
   const [debeMostrarModal, setDebeMostrarModal] = useState(false)
   const [txtDescription, setDescription]= useState("")
   const [txtLink, setLink]= useState("")
+  
+  const butonClick1 = () =>{
+    ParticipantesEvento.CambiarEstadoParticipante(evento.nu_evnt , co_usr, '2')
+      .then((result) => {
+        alert("Se ha confirmado la asistencia")
+        window.location.href = "/misEventosUsuarioI"
+      },
+      (error) =>{
+        alert("ha ocurrido un error con al actualizar el estado")
+        console.log(error);
+      })
+  }
   
   const butOnClick2 =()=>{
     setDebeMostrarModal(true)
     //setDescription(evento.desc_event)
   }
+  const butonClick3 = () =>{
+    var doc = new jsPDF();
+    doc.setFontSize(40);
+    doc.text("Esto es un certificado", 35, 25);
+    doc.text("de prueba", 35, 65);
+    doc.save("certificado.pdf");
+  }
+
   const butOnClick =()=>{
-    console.log("entraaaa")
     setDebeMostrarModal(true)
     //setDescription(evento.desc_event)
   }
@@ -55,9 +76,11 @@ export const CartaEvento = (props) => {
           <p className="card-text">Max personas: {evento.qt_pers}</p>
           <p className="card-text">Fecha Inicio: {dayI.toLocaleDateString()}</p>
           <p className="card-text">Fecha Fin: {dayF.toLocaleDateString()}</p>
-          <a href="#" className="btn btn-primary" onClick={butOnClick2}>Ver detalles</a>
+          {evento.co_estd === 1 && <a href="#" className="btn btn-primary" onClick={butonClick1}>Confirmar Asistencia</a>}
+          {evento.co_estd === 2 && <a href="#" className="btn btn-primary" onClick={butOnClick2}>Ver QR</a>}
+          {evento.co_estd === 3 && <a href="#" className="btn btn-primary" onClick={butonClick3}>Mostrar Certificado</a>}
         </div>
-        <ModalQr nu_evnt={evento.nu_evnt} mostrar={debeMostrarModal} ocultar={onModalClose}></ModalQr>
+          <ModalQr nu_evnt={evento.nu_evnt} mostrar={debeMostrarModal} ocultar={onModalClose}></ModalQr>
       </div>
     )
   }

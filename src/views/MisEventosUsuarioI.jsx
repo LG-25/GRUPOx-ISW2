@@ -16,7 +16,6 @@ export default function CatalogoEventos() {
         if(co_usr !== null){
             Evento.ObtenerEventosUsuarioI(co_usr)
             .then(result => {
-                console.log(result);
                 setEventos(result)
             })
         }

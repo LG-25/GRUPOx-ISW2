@@ -47,6 +47,20 @@ export class ParticipantesEvento{
         }
     } 
 
-
+    static async CambiarEstadoParticipante(nu_evnt, co_usr, co_estd){
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                CO_ESTD : co_estd
+            })
+        };
+        const response = await fetch(`https://genium-backend.herokuapp.com/participantes?nu_evnt=${nu_evnt}&co_usr=${co_usr}`, requestOptions)
+        if(!response.ok){
+            throw new Error('No se pudo actualizar el estado del participante')
+        }else{
+            return response.json()
+        }
+    }
 
 }
