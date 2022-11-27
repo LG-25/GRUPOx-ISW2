@@ -41,8 +41,8 @@
       "last 1 safari version"
     ]
   },
-  "engines" : {
-    "npm" : "7.x",
-    "node" : "16.x"
+  "engines": {
+    "npm": "7.x",
+    "node": "16.x"
   }
 }

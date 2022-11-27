@@ -1,3 +1,4 @@
+import { Usuario } from "../classes/Usuario";
 import {UsuarioInvitado} from "../classes/UsuarioInvitado"
 export class ServiciosUsuario{//Cambiar a clase llamada USUARIO
     static async validarUsuarioEN(correoUSREN,contraEN){
@@ -35,6 +36,56 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
             return usuariosI
         }
     }
+
+    //usuario entidad
+    static async ObtenerUsuarioE(co_usr_inv){
+        const response = await fetch(`https://genium-backend.herokuapp.com/usuario/${co_usr_inv}`)
+        if(!response.ok){
+            throw new Error('No se pudo obtener el usuario invitado')
+        }else{
+            const usuarioJson = await response.json();
+            return (
+                new Usuario(
+                    co_usr_inv,
+                    usuarioJson.NOM_USR,
+                    usuarioJson.CORREO,
+                    usuarioJson.CONTRA,
+                    usuarioJson.NOM,
+                    usuarioJson.FH_CREACION,
+                    usuarioJson.PAIS,
+                    usuarioJson.RUC
+                )
+            )
+        }
+    }
+    ///
+    static async updateUsuarioE(objeto){
+        console.log("correo: "+ objeto.correo)
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({   
+                CO_USR: objeto.co_usr,
+                NOM_USR: objeto.nom_usr,
+                CORREO : objeto.correo,
+                CONTRA: objeto.contra,
+                NOM: objeto.nom,
+                FH_CREACION: objeto.fh_creacion,
+                PAIS : objeto.pais,
+                RUC : objeto.ruc
+            })
+        };
+        const response = await fetch(`https://genium-backend.herokuapp.com/usuario/${objeto.co_usr}`, requestOptions)
+        if(!response.ok){
+            throw new Error('No se pudo actualizar el usuario')
+        }else{
+            return response.json()
+        }
+    } 
+
+
+
+    ///
     static async ObtenerUsuarioI(co_usr_inv){
         const response = await fetch(`https://genium-backend.herokuapp.com/usuarioI/${co_usr_inv}`)
         if(!response.ok){
@@ -77,6 +128,7 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
     }
     /* METODO QUE ESTABA EN USUARIO INVITADO CORREGIDO*/
     static async updateUsuarioI(objeto){
+        console.log("correo: "+ objeto.correo)
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -91,7 +143,7 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
                 FH_CREACION: objeto.fh_creacion
             })
         };
-        const response = await fetch(`https://genium-backend.herokuapp.com/usuarioI/${co_usr_inv}`, requestOptions)
+        const response = await fetch(`https://genium-backend.herokuapp.com/usuarioI/${objeto.co_usr_inv}`, requestOptions)
         if(!response.ok){
             throw new Error('No se pudo actualizar el usuario')
         }else{

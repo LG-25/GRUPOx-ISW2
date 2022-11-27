@@ -1,79 +1,70 @@
-//import { Modal, Button } from 'react-bootstrap';
 import React from 'react'
 import { useEffect, useState } from 'react';
+import { Usuario } from '../classes/Usuario.js';
 import { UsuarioInvitado } from '../classes/UsuarioInvitado.js';
 import { ServiciosUsuarioI } from '../services/ServiciosUsuario.js';
 import ModalMensaje from './ModalMensaje';
-const Modaledit = (props) => {
+const ModaleditE = (props) => {
     const usuario = props.user;
 
     const v1= usuario.nom_usr;
     const [txtNombre, setTxtNombre] = useState('');
-    const [txtAp_pat, setTxtApPaterno] = useState('');
-    const [txtAp_ma, setTxtAp_ma] = useState('');
     const [txtCorreo, setTxtCorreo] = useState('');
     const [txtContra, setTxtContra] = useState('');
     const [txtNom, setTxtNom] = useState('');
-    const [txtFN, setTxtFN] = useState('');
     const [txtFC, setTxtFC] = useState('');
+    const [txtPais, setTxtPais] = useState('');
+    const [txtRuc, setTxtRuc] = useState(0);
+    
     const [openModal, setOpenModal]= useState(false);
     useEffect(() => {
-      if (usuario.co_usr_inv != null) {
+      if (usuario.co_usr != null) {
         setTxtNombre(usuario.nom_usr);
-        setTxtApPaterno(usuario.ap_pat);
-        setTxtAp_ma(usuario.ap_mat);
         setTxtCorreo(usuario.correo);
         setTxtContra(usuario.contra);
         setTxtNom(usuario.nom);
-        setTxtFN(usuario.fh_nacimiento);
         setTxtFC(usuario.fh_creacion);
+        setTxtPais(usuario.pais);
+        setTxtRuc(usuario.ruc)
       }
-    }, [usuario.co_usr_inv])
+    }, [usuario.co_usr])
   
     const txtNombreOnChange = (event) => {
       setTxtNombre(event.target.value);
-    };
-    const txtAp_patOnChange = (event) => {
-      setTxtApPaterno(event.target.value);
-    };
-    const txtAp_maOnChange = (event) => {
-      setTxtAp_ma(event.target.value);
     };
     const txtCorreoOnChange = (event) => {
       setTxtCorreo(event.target.value);
     };
     const txtContraOnChange = (event) => {
       setTxtContra(event.target.value);
-      };
-    const btnGuardarOnclick= ()=>{
-      
+    };
+    const txtNomOnChange = (event) => {
+        setTxtNom(event.target.value);
+    };
 
-      console.log("nombre: "+ txtNombre);
-      console.log("nombre: "+ txtAp_pat);
-      console.log("nombre: "+ txtAp_ma);
-      console.log("nombre: "+ txtCorreo);
-      console.log("nombre: "+ txtContra);
+    const btnGuardarOnclick= ()=>{
 
       //btnConfirmarOnClick()
       setOpenModal(true);
     }
     const btnConfirmarOnClick=()=>{
-      const usr= new UsuarioInvitado(
-        usuario.co_usr_inv,
+      const usr= new Usuario(
+        usuario.co_usr,
         txtNombre,
         txtCorreo,
         txtContra,
         txtNom,
-        txtAp_pat,
-        txtAp_ma,
-        txtFN,
-        txtFC
-
+        txtFC,
+        txtPais,
+        txtRuc
       );
-      console.log("codi: "+ usr.co_usr_inv);
+      console.log("pais: "+ usuario.pais);
+      console.log("correo: "+ usuario.correo);
+      console.log("usuarioE: " + JSON.stringify(usr));
+
       //dirigir a principal
-      ServiciosUsuarioI.updateUsuarioI(usr).then( () => {
-        window.location.href = '/InicioUsuario';
+      ServiciosUsuarioI.updateUsuarioE(usr).then( () => {
+        window.location.href = '/InicioEntidad';
       })
     }
 
@@ -96,16 +87,12 @@ const Modaledit = (props) => {
                 </div>
               </div>
               <div className="input-group-sm mb-2">
-                <label for="" className="form-label">Nombre</label>
+                <label for="" className="form-label">Nombre de usuario</label>
                 <input type="text" defaultValue={usuario.nom_usr} className="form-control" onChange={txtNombreOnChange}/>
               </div>
               <div className="input-group-sm mb-2">
-                <label for="" className="form-label">Apellido paterno</label>
-                <input type="text" defaultValue={usuario.ap_pat} className="form-control" onChange={txtAp_patOnChange}/>
-              </div>
-              <div className="input-group-sm mb-2">
-                <label for="" className="form-label">Apellido materno</label>
-                <input type="text" defaultValue={usuario.ap_mat} className="form-control" onChange={txtAp_maOnChange}/>
+                <label for="" className="form-label">Nombre</label>
+                <input type="text" defaultValue={usuario.nom} className="form-control" onChange={txtNomOnChange}/>
               </div>
               <div className="input-group-sm mb-2">
                 <label for="" className="form-label">Correo electrónico</label>
@@ -130,4 +117,4 @@ const Modaledit = (props) => {
   </div>
   
   };
-  export default Modaledit;
+  export default ModaleditE;

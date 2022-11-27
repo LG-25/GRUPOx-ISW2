@@ -23,6 +23,7 @@ import MisEventosUsuarioI from './views/MisEventosUsuarioI';
 // ! Comentar este componente, solamente es para pruebas
 import DetallesE from './components/DetallesE';
 import EditarEvento from './views/EditarEvento';
+import EditarUsuarioE from './views/EditarUsuarioE';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Principal}></Route>
           <Route path = "/catalogoEventos" component={CatalogoEventos}></Route>
-          <Route path = "/EditarUsuarioI/:co_usr" component={EditarUsuarioI}></Route>
+          <Route path = "/editarUsuario" component={EditarUsuarioE}></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
           <Route path = "/editarUsuarioI" component={EditarUsuarioI}></Route>
           <Route path = "/RegistroEvento" component={RegistroEvento}></Route>
