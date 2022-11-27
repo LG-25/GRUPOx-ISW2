@@ -17,8 +17,6 @@ export default function CatalogoEventos() {
                 })
         }
     }, [])
-
-    console.log(eventos);
     return (
         <>
             {
