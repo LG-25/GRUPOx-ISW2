@@ -13,6 +13,14 @@ const RegistroUsuario = () => {
             FH_NACIMIENTO:"",
             FH_CREACION: "",
         })
+        
+        const validar = _ =>{
+            if(datos["NOM_USR"] === "") return false;
+            if(datos["CORREO"] === "") return false;
+            if(datos["CONTRA"] === "") return false;
+            if(datos["FH_NACIMIENTO"] === "") return false;
+            return true; 
+        }
     
         const {NOM_USR, CORREO, CONTRA,NOM, AP_PAT,AP_MAT, FH_NACIMIENTO} =datos;
     
@@ -24,22 +32,36 @@ const RegistroUsuario = () => {
         }
     
         const onSubmit = async  e => {
-            const response = await fetch(`` , {
-                method: "POST",
-                headers:{
-                    'Acept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    NOM_USR: datos["NOM_USR"],
-                    CORREO: datos["CORREO"],
-                    CONTRA: datos["CONTRA"],
-                    NOM: datos["NOM"],
-                    AP_PAT: datos["AP_PAT"],
-                    AP_MAT: datos["AP_MAT"],
-                    FH_NACIMIENTO: datos["FH_NACIMIENTO"],
+            e.preventDefault()
+            if(validar()){
+                const response = await fetch(`https://genium-backend.herokuapp.com/usuarioI` , {
+                    method: "POST",
+                    headers:{
+                        'Acept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        NOM_USR: datos["NOM_USR"],
+                        CORREO: datos["CORREO"],
+                        CONTRA: datos["CONTRA"],
+                        NOM: datos["NOM"],
+                        AP_PAT: datos["AP_PAT"],
+                        AP_MAT: datos["AP_MAT"],
+                        FH_NACIMIENTO: datos["FH_NACIMIENTO"],
+                        FH_CREACION : Date.now()
+                    })
                 })
-            })
+                if(response.ok){
+                    alert("Se ha creado al usuario satisfactoriamente")
+                    window.location.href = "/LoginUsuario"
+                }
+                else{
+                    alert("Ha ocurrido un error con la petición")
+                }
+            }
+            else{
+                alert("Falta información obligatoria por completar")
+            }
     
         }
     
@@ -85,7 +107,7 @@ const RegistroUsuario = () => {
                             <input type="date" class="form-control" name="FH_NACIMIENTO" value={FH_NACIMIENTO} onChange={e=>onInputChange(e)}/>
                         </div>
                         <div className="text-center mb-4">
-                            <button type="submit" className="btn btn-primary my-2">Regístrate</button>
+                            <button type="submit" className="btn btn-primary my-2" onClick={e => onSubmit(e)}>Regístrate</button>
                         </div>
                     </div>
                 </form>
