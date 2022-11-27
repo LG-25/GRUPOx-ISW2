@@ -31,6 +31,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Principal}></Route>
           <Route path = "/catalogoEventos" component={CatalogoEventos}></Route>
+          <Route path = "/EditarUsuarioI/:co_usr" component={EditarUsuarioI}></Route>
           <Route path = "/evento" component={Evento_Detalles}></Route>
           <Route path = "/editarUsuarioI" component={EditarUsuarioI}></Route>
           <Route path = "/RegistroEvento" component={RegistroEvento}></Route>

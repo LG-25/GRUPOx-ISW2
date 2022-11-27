@@ -20,7 +20,7 @@ const ModalMensaje = (props)=>{
                 </div>
                 <div className="footer">
                     <button id="cancelBtn" onClick={()=>props.closeModal(false)}>Cancelar</button>
-                    <button onClick={()=>props.confirmar()}>Confirmar</button>
+                    <button id="submitBtn" onClick={()=>props.confirmar()}>Confirmar</button>
                 </div>
             </div>
         </div>

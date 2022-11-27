@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Evento } from '../services/ServiciosEvento.js'
-import ModalEditar from './ModalEditar';
 import React from 'react'
+import ModalMensaje from './ModalMensaje.jsx';
 
 
 
@@ -9,19 +9,35 @@ const ModificarEvento = (props) => {
     
     
     const eventoM = props.events;
-    const [EvNom, setEvNom] = useState(eventoM.no_evnt);
-    const [CantP, setCantP] = useState(eventoM.qt_pers);
-    const [CantH, setCantH] = useState(eventoM.qt_hrs);
-    const [Desc, setDesc] = useState(eventoM.desc_event);
-    const [Ubi, setUbi] = useState(eventoM.ubic);
-    const [FecIni, setFecIni] = useState(eventoM.fh_inicio);
-    const[FecFin, setFecFin] = useState(eventoM.fh_fin);
-    const[Url, setUrl] = useState(eventoM.url_evnt);
+    const [EvNom, setEvNom] = useState("");
+    const [CantP, setCantP] = useState("");
+    const [CantH, setCantH] = useState("");
+    const [Desc, setDesc] = useState("");
+    const [Ubi, setUbi] = useState("");
+    const [FecIni, setFecIni] = useState("");
+    const[FecFin, setFecFin] = useState("");
+    const[Url, setUrl] = useState("");
     //cambiar en el formulario vigencia por texto y no booleano
-    const[Vig, setVig] = useState(eventoM.fg_vig);
-    const[Foto, setFoto] = useState(eventoM.url_foto);
+    const[Vig, setVig] = useState("");
+    const[Foto, setFoto] = useState("");
     const [openModal, setOpenModal]= useState(false);
-        
+    
+    useEffect(() => {
+      if (eventoM.no_evnt != null) {
+        setEvNom(eventoM.no_evnt);
+        setCantP(eventoM.qt_pers);
+        setCantH(eventoM.qt_hrs);
+        setDesc(eventoM.desc_event);
+        setUbi(eventoM.ubic);
+        setFecIni(eventoM.fh_inicio);
+        setFecFin(eventoM.fh_fin);
+        setUrl(eventoM.url_evnt);
+        setVig(eventoM.fg_vig);
+        setFoto(eventoM.url_foto);
+      }
+    }, [eventoM.no_evnt])
+
+
     const EvNomOnChange = (e) => {
         setEvNom(e.target.value);
       };
@@ -55,10 +71,16 @@ const ModificarEvento = (props) => {
     const btnOnclick= ()=>{
         setOpenModal(true);
     }
-    const btnConfirmarOnClick=()=>{
-        Evento.update(10, 
-            [EvNom, CantP, CantH, Desc, Ubi, FecIni, FecFin, Url, Vig, Foto]);
+    const change=()=>{
+      window.location.href = '/InicioEntidad';
     }
+    const btnConfirmarOnClick=()=>{
+        Evento.update(eventoM.nu_evnt,EvNom, CantP, CantH, Desc, Ubi, FecIni, FecFin, Url, Vig, Foto).then( () => {
+          window.location.href = '/InicioEntidad';;
+        })
+       
+        
+      }
   
     return <div className="row container mt-5">
       <div className="row justify-content-center">
@@ -132,10 +154,10 @@ const ModificarEvento = (props) => {
         <div className="col" />
       </div>
       {openModal && 
-        <ModalEditar 
-            closeModal={setOpenModal} 
-            confirmar={btnConfirmarOnClick}>
-        </ModalEditar>
+        <ModalMensaje closeModal={setOpenModal} 
+        confirmar={btnConfirmarOnClick}>
+          
+        </ModalMensaje>
         }
     </div>
 }

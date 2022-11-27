@@ -14,21 +14,21 @@ export class Evento{
         this.url_foto   = url_foto;
     }
 
-    static async update(nu_evnt, body){
+    static async update(nu_evnt, no_evnt,qt_pers,qt_hrs,desc_event,ubic,fh_inicio,fh_fin,url_evnt,fg_vig,url_foto){
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({   
-                NO_EVNT     : this.no_evnt, 
-                QT_PERS     : this.qt_pers,  
-                QT_HRS      : this.qt_hrs,   
-                DESC_EVENT   : this.desc_event,
-                UBIC        : this.ubic,     
-                FH_INICIO   : this.fh_inicio,
-                FH_FIN      : this.fh_fin,   
-                URL_EVNT    : this.url_evnt, 
-                FG_VIG      : this.fg_vig,
-                URL_FOTO    : this.url_foto
+                NO_EVNT     : no_evnt, 
+                QT_PERS     : qt_pers,  
+                QT_HRS      : qt_hrs,   
+                DESC_EVENT   : desc_event,
+                UBIC        : ubic,     
+                FH_INICIO   : fh_inicio,
+                FH_FIN      : fh_fin,   
+                URL_EVNT    : url_evnt, 
+                FG_VIG      : fg_vig,
+                URL_FOTO    : url_foto
             })
         };
         const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${nu_evnt}`, requestOptions)

@@ -5,7 +5,6 @@ const Evento_Detalles=()=>{
     return (
         <div className="container">
             <DetallesE></DetallesE>
-            
         </div>
     )
 }

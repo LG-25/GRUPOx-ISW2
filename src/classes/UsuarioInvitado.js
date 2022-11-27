@@ -1,4 +1,4 @@
-export class UsuarioInvitado{
+class UsuarioInvitado{
     constructor(co_usr_inv, nom_usr, correo, contra, nom, ap_pat, ap_mat, fh_nacimiento, fh_creacion){
         this.co_usr_inv= co_usr_inv
         this.nom_usr= nom_usr

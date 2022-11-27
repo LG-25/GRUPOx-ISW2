@@ -15,7 +15,7 @@ export const Sidebar = () =>{
                 </ul>
                 <small className="text-muted px-3">Usuario</small>
                 <ul>
-                    <li><a href="editarUsuarioI"><i className="fas fa-external-link-alt"></i>Modificar</a></li>
+                    <li><a href="../EditarUsuarioI"><i className="fas fa-external-link-alt"></i>Modificar</a></li>
                     <li>
                         <a href="#" onClick={() => {
                             sessionStorage.removeItem("user");

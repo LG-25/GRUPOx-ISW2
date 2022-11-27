@@ -53,11 +53,14 @@ const Modaledit = (props) => {
       console.log("nombre: "+ txtCorreo);
       console.log("nombre: "+ txtContra);
 
-      btnConfirmarOnClick()
+      //btnConfirmarOnClick()
       setOpenModal(true);
     }
     const btnConfirmarOnClick=()=>{
-      ServiciosUsuarioI.updateUsuarioI(usuario.co_usr_inv, txtNombre, txtAp_pat, txtAp_ma, txtCorreo, txtContra, txtNom, txtFN, txtFC);
+      //dirigir a principal
+      ServiciosUsuarioI.updateUsuarioI(usuario.co_usr_inv, txtNombre, txtAp_pat, txtAp_ma, txtCorreo, txtContra, txtNom, txtFN, txtFC).then( () => {
+        window.location.href = '/InicioUsuario';
+      })
     }
 
   return <div className="row container mt-5">
