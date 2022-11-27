@@ -5,14 +5,14 @@ import { useEffect, useState } from 'react';
 import QRCode from "qrcode";
 const ModalQr = (props) => {
     const [src, setSrc] = useState('');
-    let data = sessionStorage.getItem("userEN");
-        if (data === null) {
-            data = 1;
+    let nu_usr = sessionStorage.getItem("userEN");
+        if (nu_usr === null) {
+            nu_usr = 1;
         }
-    const url = `https://genium-backend.herokuapp.com/?nroEvento=${props.nu_evnt}&nroUsuario=${data}`;
+    const url = `https://genium-backend.herokuapp.com/confirmarQr?nu_evnt=${props.nu_evnt}&nu_usr=${nu_usr}`;
     useEffect(() => {
-        QRCode.toDataURL(url).then((data) => {
-            setSrc(data);
+        QRCode.toDataURL(url).then((nu_usr) => {
+            setSrc(nu_usr);
         });
     }, []);
 

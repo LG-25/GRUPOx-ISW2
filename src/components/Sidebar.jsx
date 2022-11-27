@@ -1,3 +1,4 @@
+import { logDOM } from '@testing-library/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "../css/Sidebar.css"
@@ -9,16 +10,17 @@ export const Sidebar = () =>{
             <div className="sidebar">
                 <small className="text-muted px-3">Gestion Eventos</small>
                 <ul>
-                    <li><a href="#"><i className="fas fa-home"></i>Catalogo de eventos</a></li>
-                    <li><a href="#"><i className="far fa-credit-card"></i>Eventos</a></li>
-                    <li><a href="../RegistroEvento"><i className="far fa-credit-card"></i>Formulario Eventos</a></li>
+                    <li><a href="../catalogoEventos"><i class="far fa-credit-card"></i>Catalogo Eventos</a></li>
+                    <li><a href="../misEventosUsuarioI"><i class="far fa-credit-card"></i>Eventos Inscritos</a></li>
                 </ul>
                 <small className="text-muted px-3">Usuario</small>
                 <ul>
-                    <li><a href="#"><i className="fas fa-external-link-alt"></i>Modificar</a></li>
-                    <li><Link to="/">
-                        <div href="#"><i className="fas fa-code"></i>Cerrar sesión</div>
-                    </Link>
+                    <li><a href="editarUsuarioI"><i className="fas fa-external-link-alt"></i>Modificar</a></li>
+                    <li>
+                        <a href="#" onClick={() => {
+                            sessionStorage.removeItem("user");
+                            window.location.href = '/';
+                        }}><i className="fas fa-code"></i>Cerrar sesión</a>
                     </li>
                 </ul>
             </div>

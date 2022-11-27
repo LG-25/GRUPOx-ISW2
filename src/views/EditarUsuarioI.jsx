@@ -5,11 +5,10 @@ const EditarUsuario=()=>{
     //const [datos, setDatos]= useState([])
     //const [openModal, setOpenModal]= useState(true);
     const [usuario, setUsuario] = useState([])
-    const gestorUsuarios = new ServiciosUsuarioI();
     
     // Solamente se realizará una vez el useState
     useEffect(() => {
-        gestorUsuarios.ObtenerUsuarioI(10)
+        ServiciosUsuarioI.ObtenerUsuarioI(1)
             .then(result => {
                 setUsuario(result)
             })

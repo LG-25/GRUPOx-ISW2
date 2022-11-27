@@ -1,3 +1,5 @@
+import { EventoUsuario } from "../classes/EventoUsuario";
+
 //porfavor Ricardo diferenciar la clase ServicioEvento con la clase Evento. Saludos. ATTE : Fabrizio 
 export class Evento{
     constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_event, ubic, fh_inicio, fh_fin, url_evnt, fg_vig, url_foto){
@@ -14,7 +16,7 @@ export class Evento{
         this.url_foto   = url_foto;
     }
 
-    static async update(){
+    static async update(nu_evnt, body){
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -31,7 +33,7 @@ export class Evento{
                 URL_FOTO    : this.url_foto
             })
         };
-        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${this.nu_evnt}`, requestOptions)
+        const response = await fetch(`https://genium-backend.herokuapp.com/eventos/${nu_evnt}`, requestOptions)
         if(!response.ok){
             throw new Error('No se pudo actualizar el evento')
         }else{
@@ -92,8 +94,7 @@ export class Evento{
             throw new Error('No se pudo obtener el evento')
         } else {
             // devolvemos la consulta
-            const eventosJson = await response.json();
-            const eventos = eventosJson.map(evento => {
+            const evento = await response.json();
                 return(
                     //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
                     new Evento(
@@ -110,8 +111,6 @@ export class Evento{
                         evento.URL_FOTO
                     )
                 )
-            })
-            return eventos
         }
     }
     
@@ -162,10 +161,11 @@ static async ObtenerEventosUsuarioI(co_usr){
     } else {
         // devolvemos la consulta
         const eventosJson = await response.json();
+        console.log(eventosJson);
         const eventos = eventosJson.map(evento => {
             return(
                 //constructor(nu_evnt, no_evnt, qt_pers, qt_hrs, desc_evnt, ubic, fh_inicio, fh_fin, url_evnt, fg_vig)
-                new Evento(
+                new EventoUsuario(
                     evento.NU_EVNT, 
                     evento.NO_EVNT, 
                     evento.QT_PERS, 
@@ -176,7 +176,8 @@ static async ObtenerEventosUsuarioI(co_usr){
                     evento.FH_FIN,
                     evento.URL_EVNT,
                     evento.FG_VIG,
-                    evento.URL_FOTO
+                    evento.URL_FOTO,
+                    evento["USUARIO_INVITADO_EVENTOs"][0]["CO_ESTD"]
                 )
             )
         })

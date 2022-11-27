@@ -22,7 +22,7 @@ const MainEntidad = () => {
               <div className="col-lg-4 col-md-12 col-12">
                   <div className="row">
                     <div class="button">
-                      <Link to ="/catalogoEventos">
+                      <Link to ="/RegistroEvento">
                           <a class="btn primary-btn w-100">Registrar Evento</a>
                       </Link>
                     </div>
@@ -31,13 +31,6 @@ const MainEntidad = () => {
                     <div class="button">
                       <Link to ="/misEventos">
                           <a class="btn primary-btn w-100">Mi Catálogo de eventos</a>
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div class="button">
-                      <Link to ="/catalogoEventos">
-                          <a class="btn primary-btn w-100">Editar Evento</a>
                       </Link>
                     </div>
                   </div>

@@ -4,6 +4,7 @@ import { useParams} from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import ParticipanteFil from "../components/ParticipanteFil"
 import {ParticipantesEvento} from '../services/ServiciosParticipanteEvento.js'
+import { Sidebar } from '../components/Entidad_Sidebar'
 
 
 
@@ -20,13 +21,23 @@ const Entidad_EventoDetalles = () => {
     }, [])
 
     return (
+        <> 
+        <Sidebar></Sidebar>
         <div>
             <div>
-                <div className="card">
-                    <div className="card-header">
-                        <h1>Participantes</h1>
+                <div className="row">
+                    <div className="col-2">
+
+                    </div>
+                    <div className="col">
+                        <div className="card">
+                            <div className="card-header ">
+                                <h1>Participantes</h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <div className="container">
                     <div className="row mt-3">
                         <div className="col-sm">
@@ -74,6 +85,7 @@ const Entidad_EventoDetalles = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

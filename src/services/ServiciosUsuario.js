@@ -38,12 +38,12 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
         }
     }
     static async ObtenerUsuarioI(co_usr_inv){
-        const response = await fetch(`https://genium-backend.herokuapp.com/UsuariosI/${co_usr_inv}`)
+        const response = await fetch(`https://genium-backend.herokuapp.com/usuarioI/${co_usr_inv}`)
         if(!response.ok){
             throw new Error('No se pudo obtener el usuario invitado')
         }else{
             const usuarioJson = await response.json();
-            const usuarioI=
+            return (
                 new UsuarioInvitado(
                     usuarioJson.NOM_USR,
                     usuarioJson.CORREO,
@@ -54,7 +54,7 @@ export class ServiciosUsuarioI{//Cambiar a clase llamada USUARIO
                     usuarioJson.FH_NACIMIENTO,
                     usuarioJson.FH_CREACION
                 )
-            return usuarioI
+            )
         }
     }
 

@@ -58,16 +58,24 @@ const ModalDetalleEvento = (props) => {
         setOpen(false);
     } 
     const OpenModal=()=>{
-        setOpen(true)
-        let data = sessionStorage.getItem("userEN");
-        if (data === null) {
-            data = 1;
-        }
+        let co_usr = sessionStorage.getItem("user");
         const fecha = Date.now()
-        ParticipantesEvento.CrearParticipanteEvento(props.nro,data,fecha,1)
+        ParticipantesEvento.CrearParticipanteEvento(props.nro,co_usr,fecha,1)
+            .then(
+                (response) =>{
+                    setOpen(true)
+                    console.log(response);
+                },
+                (error)=>{
+                    alert("ha ocurrido al añadir al participante")
+                    setOpen(false)
+                    console.log(error);
+                }
+            )
     }
     const onModalClose=()=>{
         setOpen(false)
+        window.location.href = '/catalogoEventos';
     }
 
     //const MODAL = (

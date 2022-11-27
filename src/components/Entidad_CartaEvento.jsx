@@ -18,6 +18,9 @@ export const CartaEvento = (props) => {
           <Link to={`/DetalleEventoEntidad/${evento.nu_evnt}`}>
               <a href="#" className="btn btn-primary">Ver Participantes</a>
           </Link>
+          <Link to={`/editarEvento/${evento.nu_evnt}`}>
+              <a href="#/" className="mt-3 btn btn-secondary">Editar Evento</a>
+          </Link>
         </div>
     </div>
   )
