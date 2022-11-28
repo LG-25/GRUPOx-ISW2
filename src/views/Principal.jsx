@@ -39,35 +39,32 @@ const Principal = () => {
             </div>
         </div>
         </nav>
-        <section className="header" data-scroll-index="0" style="background-image: url(./imagenes/handsbackground.jpg);" data-stellar-background-ratio="0.5">
-            <div>
-                <canvas className="particles-js-canvas-el" width="3186" height="1093" style="width:100%; height:100%;"></canvas>
-            </div>
+        <section className="header" data-scroll-index="0" data-stellar-background-ratio="0.5">
             <div className="v-middle">
                 <div className="container">
-                <div className="row">
-                    <div className="caption">
-                    <h5>Hello</h5>
-                        <h1 className="cd-headline clip">
-                        <span className="blc">We are</span>
-                        </h1>
-                        <p style="color:#fff;margin-bottom:0;font-size:18px;">Update you</p>
-                        <div className="btn-block">
-                        <a href="javascript:void(Tawk_API.toggle())" className="btn btn-get-in-touch" title="Get In Touch">
-                            "get in touch"
-                        </a>
+                    <div className="row">
+                        <div className="caption">
+                            <h5>Hello</h5>
+                                <h1 className="cd-headline clip">
+                                    <span className="blc">We are</span>
+                                </h1>
+                                <p>Update you</p>
+                                <div className="btn-block">
+                                    <a  className="btn btn-get-in-touch" title="Get In Touch">
+                                        "get in touch"
+                                    </a>
+                                </div>
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
+            
+        </section>
             <div className="svg">
             <svg x="0px" y="0px" viewBox="0 186.5 1920 113.5">
                 <polygon points="-30,300 355.167,210.5 1432.5,290 1920,198.5 1920,300"></polygon>
             </svg>
             </div>
-            
-        </section>
     </>
     )
 }
