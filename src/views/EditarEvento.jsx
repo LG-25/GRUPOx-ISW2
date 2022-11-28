@@ -7,22 +7,30 @@ import { Evento } from "../services/ServiciosEvento.js"
 
 const EditarEvento = () => {
 
-    const [eventoM, setEventoM] = useState({});
+    const [evento, setEvento] = useState({});
     const {nu_evnt} = useParams();
+    console.log("numero: "+ nu_evnt)
     useEffect(() => {
         Evento.ObtenerEvento(nu_evnt)
         .then(result => {
-            setEventoM(result)
+            setEvento(result)
             })
     }, [])
 
+    console.log("evento: " + JSON.stringify(evento));
+
     return(
-        <>
-        <Sidebar></Sidebar>
-        <div className ="container">
-            <ModificarEvento events = {eventoM}></ModificarEvento>
+        <div className="row">
+            <div className="col-md-2">
+                <Sidebar></Sidebar>
+            </div>
+            <div className="col">
+                <div className="d-flex flex-column flex-shrink-0 container mt-3 justify-content-center">
+                    <ModificarEvento events = {evento}></ModificarEvento>
+                </div>
+            </div>
         </div>
-        </>
+        
     )
 }
 
