@@ -18,7 +18,7 @@ const PantallaConfirma = () => {
 
   const confirma = async _ => {
     const res = await ParticipantesEvento.ConfirmarQrParticipante(nu_evnt , co_usr)
-    if(res["CO_ESTD"] == '3'){
+    if(!res.message){
       alert("Se ha actualizado el estado del participante")
       window.location.href = '/'
     }
