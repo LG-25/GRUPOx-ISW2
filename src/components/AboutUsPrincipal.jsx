@@ -54,47 +54,30 @@ const AboutUsPrincipal = () => {
                     </div>
                     <div class="col-lg-6 col-12">
                     <div class="about-five-content">
-                        <h6 class="small-title text-lg">OUR STORY</h6>
-                        <h2 class="main-title fw-bold">Our team comes with the experience and knowledge</h2>
-                        <div class="about-five-tab">
+                        <h6 class="small-title text-secondary">Sobre Nosotros</h6>
+                        <h2 class="main-title fw-bold">Nuestro equipo al servicio de la sociedad</h2>
+                        <div class="about-five-tab ">
                             <nav>
-                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <div class="nav nav-" id="nav-tab" role="tablist">
                                     <button class={state["boton1"]} id="boton1" type="button" onClick={evento => {
                                         evento.preventDefault();
                                         handleClick(evento);
-                                    }}>Who We Are</button>
+                                    }}>Quienes somos</button>
                                     <button class={state["boton2"]} id="boton2" type="button" onClick={evento => {
                                         evento.preventDefault();
                                         handleClick(evento);
-                                    }}>our Vision</button>
-                                    <button class={state["boton3"]} id="boton3" type="button" onClick={evento => {
-                                        evento.preventDefault();
-                                        handleClick(evento);
-                                    }}>our History</button>
+                                    }}>Visión</button>
                                 </div>
                             </nav>
                             <div class="tab-content" id="nav-tabContent">
                                 <div class={state["texto1"]} id="nav-who" role="tabpanel" aria-labelledby="nav-who-tab">
-                                <p> Texto de quienes somos</p>
-                                <p> Un poco de texto argumentativo.</p>
+                                <p> Somos alumnos de la Universidad de Lima que estamos en busqueda de promoveer, articular y difundir todas las actividades vinculadas con el desarrollo de la sociedad en el país, el nacimiento de nuevas iniciativas sociales y el fortalecimiento de un ecosistema saludable que contribuya con el crecimiento del país y el bienestar de la sociedad.
+                                Con esta finalidad, desarrollamos Genium, una plataforma web que busca visibilizar eventos sociales.
+                                </p>
                                 </div>
                                 <div class={state["texto2"]} id="nav-vision" role="tabpanel" aria-labelledby="nav-vision-tab">
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                                    when
-                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, look like readable English.</p>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
-                                    form,
-                                    by injected humour.</p>
-                                </div>
-                                <div class={state["texto3"]} id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
-                                <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                                    when
-                                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                                    distribution of letters, look like readable English.</p>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
-                                    form,
-                                    by injected humour.</p>
+                                <p>Ser una plataforma web que este al servicio de las organizaciones que tienen como fin organizar eventos que contribuyan al desarrollo de la sociedad.</p>
+                                
                                 </div>
                             </div>
                         </div>
