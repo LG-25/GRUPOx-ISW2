@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { ServiciosUsuarioI } from "../services/ServiciosUsuario.js"
-import { Sidebar } from "../components/Sidebar.jsx"
+import { Sidebar } from "../components/Entidad_Sidebar.jsx"
 import ModaleditE from "../components/ModaleditE.component.jsx"
 const EditarUsuarioE=()=>{
     //const [datos, setDatos]= useState([])
