@@ -73,4 +73,16 @@ export class ParticipantesEvento{
         }
     }
 
+    static async ConfirmarQrParticipante(nu_evnt, co_usr){
+        const requestOptions = {
+            headers: { 'Content-Type': 'application/json', 'token' : 'sprint3'},
+        };
+        const response = await fetch(`https://genium-backend.herokuapp.com/confirmarQr?nu_evnt=${nu_evnt}&nu_usr=${co_usr}`, requestOptions)
+        if(!response.ok){
+            throw new Error('No se pudo actualizar el estado del participante')
+        }else{
+            return response.json()
+        }
+    }
+
 }

@@ -23,6 +23,8 @@ import MisEventosUsuarioI from './views/MisEventosUsuarioI';
 // ! Comentar este componente, solamente es para pruebas
 import DetallesE from './components/DetallesE';
 import EditarEvento from './views/EditarEvento';
+import LoginConfirma from './views/ConfirmaQr/LoginConfirma';
+import PantallaConfirma from './views/ConfirmaQr/PantallaConfirma';
 import EditarUsuarioE from './views/EditarUsuarioE';
 
 function App() {
@@ -47,6 +49,8 @@ function App() {
           <Route path = "/misEventosUsuarioI" component={MisEventosUsuarioI}></Route>
           <Route path = "/DetallesE" component={DetallesE}></Route>
           <Route path = "/EditarEvento/:nu_evnt" component={EditarEvento}></Route>
+          <Route path = "/signupConfirma" component={LoginConfirma}></Route>
+          <Route path = "/pantallaConfirma" component={PantallaConfirma}></Route>
         </Switch>
       </Router>
     </>
